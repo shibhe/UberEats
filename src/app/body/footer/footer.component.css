@@ -1,0 +1,12 @@
+ul {
+    display: inline-block;
+}
+
+li {
+    list-style: none;
+}
+
+ul li a:hover {
+    padding-left: 4px;
+    text-decoration: none;
+}
