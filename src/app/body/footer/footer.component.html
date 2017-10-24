@@ -2,24 +2,24 @@
     <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" style="padding-top: 30px; padding-left: 65px">
-                    <p style="letter-spacing: 2px; border-bottom: 1px solid gray; padding-bottom: 30px"><span style="color: white; font-size: 23px">UBER</span> <span style="color: #58D68D; font-size: 23px">EATS</span></p>
+                <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" style="padding-top: 30px; padding-left: 65px; border-bottom: 1px solid gray; padding-bottom: 30px">
+                    <p style="letter-spacing: 2px"><span style="color: white; font-size: 23px">UBER</span> <span style="color: #58D68D; font-size: 23px">EATS</span></p>
                 </div>
             </div>
             <div class="row" style="border-bottom: 1px solid gray; padding-bottom: 30px">
                 <div class="col-md-4 col-sm-4 col-xs-4 col-lg-4">
                     <ul>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">English <b class="caret"></b></a>
-                            <!--<ul class="dropdown-menu">
-                        <li><a href="#">Azarbaycan</a></li>
-                        <li><a href="#">Deutsch</a></li>
-                        <li><a href="#">English</a></li>
-                        <li><a href="#">English (British)</a></li>
-                        <li><a href="#">Siswati</a></li>
-                    </ul>-->
+                        <li style="padding-top: 40px">
+                            <mat-form-field>
+                                <mat-select placeholder="Favorite food">
+                                    <mat-option *ngFor="let food of foods" [value]="food.value">
+                                        {{ food.viewValue }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+
                         </li>
-                        <li><a href="#">#UberEats</a></li>
+                        <li> <a href="#">#UberEats</a></li>
                         <li class="social-networks">
                             <a href="#" class="fa fa-facebook"></a>
                             <a href="#" class="fa fa-twitter"></a>
@@ -29,27 +29,34 @@
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-4 col-lg-4">
                     <ul>
-                        <li><a href="#">About UberEATS</a></li>
+                        <li style="padding-top: 40px"><a href="#">About UberEATS</a></li>
                         <li><a href="#">Become a Delivery Partner</a></li>
                         <li><a href="#">Become a Restaurant Partner</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-4 col-lg-4">
                     <ul>
-                        <li><a href="#">See all cities</a></li>
+                        <li style="padding-top: 40px"><a href="#">See all cities</a></li>
                         <li><a href="#">Pricing</a></li>
                         <li><a href="#">Help</a></li>
                         <li><a href="#">FAQs</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="row" style="border-bottom: 1px solid gray; padding-bottom: 30px">
+            <div class="row">
                 <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
-                    <img src="./en_badge_web_generic-cf6dad406f.png" class="img-responsive">
+                    <ul class="list-inline text-right" style="padding-left: 400px; padding-top: 30px">
+                        <li>
+                            <a href="#"><img src="./assets/images/ap store.png" class="img-responsive"></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="./assets/images/en_badge_web_generic-cf6dad406f.png" class="img-responsive"></a>>
+                        </li>
+                    </ul>
                 </div>
             </div>
             <div class="row" style="padding-top: 40px">
-                <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
+                <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12" style="letter-spacing: 2px; border-top: 1px solid gray; padding-bottom: 30px">
                     <div class="col-md-4 col-sm-4 col-xs-4 col-lg-4">
                         <ul>
                             <li>

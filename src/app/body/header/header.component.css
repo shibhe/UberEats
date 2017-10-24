@@ -10,6 +10,11 @@ nav {
     box-shadow: 0px 10px 5px #F4F6F6;
 }
 
+nav.navbar {
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
 nav .navbar-header {
     margin-top: 30px;
 }

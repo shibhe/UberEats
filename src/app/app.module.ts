@@ -1,24 +1,33 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { AgmCoreModule } from '@agm/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatRadioModule, MatSelectModule } from '@angular/material';
+
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './body/main/main.component';
 import { HeaderComponent } from './body/header/header.component';
 import { FooterComponent } from './body/footer/footer.component';
+import { CarouselComponent } from './other/carousel/carousel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
-  ],
+    BrowserAnimationsModule,
+    FormsModule,
+    NgbModule.forRoot(),
+    ReactiveFormsModule,
+    MatRadioModule,
+    MatSelectModule ],
   providers: [],
   bootstrap: [AppComponent]
 })

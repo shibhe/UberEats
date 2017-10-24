@@ -1,13 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 body {
     margin: 0px;
     padding: 0px;
+    background-color: white;
+}
+
+header {
+    border: none;
 }
 
 li {
     list-style: none;
     margin: 0px;
+}
+
+ul {
+    display: block;
 }
 
 * {
@@ -21,4 +31,11 @@ li {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+}
+
+@media (max-width: 979px) {
+    .navbar .brand,
+    .nav-collapse {
+        display: block;
+    }
 }

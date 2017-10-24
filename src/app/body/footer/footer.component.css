@@ -17,6 +17,11 @@ ul li a {
     background: transparent;
 }
 
+ul li a img {
+    height: 39px;
+    width: 139px;
+}
+
 ul li p {
     padding-left: 12px;
     color: #FFFFFF;
@@ -24,7 +29,7 @@ ul li p {
     line-height: 21px;
     font-size: x-small;
     letter-spacing: 2px;
-    font-weight: 100;
+    padding-top: 20px;
     background: transparent;
 }
 
