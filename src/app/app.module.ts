@@ -3,14 +3,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatRadioModule, MatSelectModule } from '@angular/material';
+import { MatRadioModule, MatSelectModule, MatTabsModule } from '@angular/material';
 
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './body/main/main.component';
 import { HeaderComponent } from './body/header/header.component';
 import { FooterComponent } from './body/footer/footer.component';
-import { CarouselComponent } from './other/carousel/carousel.component';
+import { TabsComponent } from './other/tabs/tabs.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { CarouselComponent } from './other/carousel/carousel.component';
     MainComponent,
     HeaderComponent,
     FooterComponent,
-    CarouselComponent
+    TabsComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +27,8 @@ import { CarouselComponent } from './other/carousel/carousel.component';
     NgbModule.forRoot(),
     ReactiveFormsModule,
     MatRadioModule,
-    MatSelectModule ],
+    MatSelectModule,
+    MatTabsModule ],
   providers: [],
   bootstrap: [AppComponent]
 })

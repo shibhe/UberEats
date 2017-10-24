@@ -1,0 +1,15 @@
+p {
+    padding-top: 10px;
+    font-family: ClanPro-News, Helvetica, sans-serif;
+    line-height: 21px;
+    font-size: 14px;
+    letter-spacing: 2px;
+    font-weight: 100;
+    background: transparent;
+}
+
+img {
+    border-radius: 0px;
+    margin: 0px;
+    padding: 0px;
+}
