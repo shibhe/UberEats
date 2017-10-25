@@ -45,3 +45,12 @@ nav .navbar-nav li:hover {
     border-radius: 0;
     width: 94px;
 }
+
+.dark-modal .modal-content {
+    background-color: #292b2c;
+    color: white;
+}
+
+.dark-modal .close {
+    color: white;
+}

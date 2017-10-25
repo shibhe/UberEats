@@ -20,6 +20,10 @@ ul {
     display: block;
 }
 
+a:hover {
+    text-decoration: none;
+}
+
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
