@@ -7,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  foods = [
-    { value: 'steak-0', viewValue: 'Steak' },
-    { value: 'pizza-1', viewValue: 'Pizza' },
-    { value: 'tacos-2', viewValue: 'Tacos' }
+  languages = [
+    { value: 'Chinese-0', viewValue: 'Chinese' },
+    { value: 'Spanish-1', viewValue: 'Spanish' },
+    { value: 'Hindi-2', viewValue: 'Hindi' },
+    { value: 'Arabic-3', viewValue: 'Arabic' },
+    { value: 'Portuguese-4', viewValue: 'Portuguese' },
   ];
 
   constructor() { }
