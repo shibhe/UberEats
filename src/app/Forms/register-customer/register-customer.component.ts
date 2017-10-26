@@ -10,25 +10,35 @@ import { RegisterCustomerService } from '../../services/Customer/register-custom
   providers: [RegisterCustomerService]
 })
 export class RegisterCustomerComponent implements OnInit {
-  customer: Customer;
-
-  customerDetails: Customer[];
+  // customer: Customer;
+  customer = {
+    'id': ' ',
+    firstName: ' ',
+    lastName: ' ',
+    phoneNumber: ' ',
+    email: ' ',
+    password: ' ',
+    creditCard: ' ',
+    CVV: ' ',
+    expiryDate: ' ',
+    zipCode: ' '
+  };
 
   constructor(private service: RegisterCustomerService) { 
-    this.customer = new Customer();
+    // this.customer = new Customer();
   }
 
   ngOnInit() {
   }
 
-  onSubmit(){
+  onSubmit() {
      this.service.postNewCustomer(this.customer);
   }
 }
 
 
 // Model
- class Customer {
+ /**class Customer {
   id: number;
   firstName: string;
   lastName: string;
@@ -39,4 +49,4 @@ export class RegisterCustomerComponent implements OnInit {
   CVV: string;
   expiryDate: Date;
   zipCode: string;
-}
+}**/

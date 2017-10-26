@@ -10,10 +10,14 @@ export class RegisterCustomerService {
 
   constructor(private http: Http) { }
 
-  postNewCustomer(customer){ 
-     return this.http.post(this.POST_CUSTOMER_URL, customer).map(req => req.json());
+  // postNewCustomer(customer){ 
+  //   return this.http.post(this.POST_CUSTOMER_URL, customer).map(req => console.log('rtyui', req.json()));
+  // }
+  postNewCustomer(customer) {
+    return this.http.post(this.POST_CUSTOMER_URL, customer).toPromise().then(res =>
+      console.log('Success: ', res.json())).catch(res => console.log(JSON.stringify(res)));
   }
-
+  
   deleteCustomer(id){
     return this.http.delete(this.POST_CUSTOMER_URL + '/' + id).toPromise()
       .then()
