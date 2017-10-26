@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Http, HttpModule } from '@angular/http';
+
+
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './body/main/main.component';
@@ -19,6 +22,8 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from './Forms/login/login.component';
 
 // Services
+import { RegisterCustomerService } from './services/Customer/register-customer.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,11 +48,14 @@ import { LoginComponent } from './Forms/login/login.component';
     MatDialogModule,
     RouterModule.forRoot([
       {
-        path: 'Register.html',
+        path: 'register.html',
         component: RegisterCustomerComponent
       }
-    ]) ],
-  providers: [],
+    ]),
+  HttpModule ],
+  providers: [
+    RegisterCustomerService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

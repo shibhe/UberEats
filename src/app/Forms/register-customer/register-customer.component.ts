@@ -1,23 +1,34 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { RegisterCustomerService } from '../../services/Customer/register-customer.service';
+// import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-register-customer',
   templateUrl: './register-customer.component.html',
-  styleUrls: ['./register-customer.component.css']
+  styleUrls: ['./register-customer.component.css'],
+  providers: [RegisterCustomerService]
 })
 export class RegisterCustomerComponent implements OnInit {
+  customer: Customer;
 
+  customerDetails: Customer[];
 
-  constructor() { }
-
-
+  constructor(private service: RegisterCustomerService) { 
+    this.customer = new Customer();
+  }
 
   ngOnInit() {
   }
+
+  onSubmit(){
+     this.service.postNewCustomer(this.customer);
+  }
 }
 
- /** interface ICustomer {
+
+// Model
+ class Customer {
   id: number;
   firstName: string;
   lastName: string;
@@ -28,5 +39,4 @@ export class RegisterCustomerComponent implements OnInit {
   CVV: string;
   expiryDate: Date;
   zipCode: string;
-  postNewCustomer(): void;
-}**/
+}

@@ -13,24 +13,24 @@
                     </h3>
                     <div class="row">
                         <div class="col-sm-6 form-group">
-                            <input ([ngModel])="firstName" name="lastName" type="text" placeholder="First Name Here..." class="form-control" required>
+                            <input [(ngModel)]="firstName" name="firstName" type="text" placeholder="First Name Here..." class="form-control" required>
                         </div>
                         <div class="col-sm-6 form-group">
-                            <input ([ngModel])="lastName" name="lastName" type="text" placeholder="Last Name Here..." class="form-control" required>
+                            <input [(ngModel)]="lastName" name="lastName" type="text" placeholder="Last Name Here..." class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <input ([ngModel])="phoneNumber" name="phoneNumber" type="tel" placeholder="Phone number Here..." class="form-control" required>
+                        <input [(ngModel)]="phoneNumber" name="phoneNumber" type="tel" placeholder="Phone number Here..." class="form-control" required>
                     </div>
                     <h3>Account<br>
                         <p>By creating an account you will be able to use it for both Uber and UberEATS.</p>
                     </h3>
                     <div class="row">
                         <div class="col-sm-6 form-group">
-                            <input ([ngModel])="email" name="email" type="email" placeholder="Email Here.." class="form-control" required>
+                            <input [(ngModel)]="email" name="email" type="email" placeholder="Email Here.." class="form-control" required>
                         </div>
                         <div class="col-sm-6 form-group">
-                            <input ([ngModel])="password" name="password" type="password" placeholder="Password Here.." class="form-control" required>
+                            <input [(ngModel)]="password" name="password" type="password" placeholder="Password Here.." class="form-control" required>
                         </div>
                     </div>
                     <h3>Payment <br>
@@ -38,28 +38,30 @@
                     </h3>
                     <div class="row">
                         <div class="col-sm-6 form-group">
-                            <input ([ngModel])="creditCard" name="creditCard" type="type" placeholder="Credit Card Here.." class="form-control" required>
+                            <input [(ngModel)]="creditCard" name="creditCard" type="text" placeholder="Credit Card Here.." class="form-control" required>
                         </div>
                         <div class="col-sm-6 form-group">
-                            <input ([ngModel])="CVV" name="CVV" type="type" placeholder="CVV Here.." class="form-control" required>
+                            <input [(ngModel)]="CVV" name="CVV" type="type" placeholder="CVV Here.." class="form-control" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6 form-group">
-                            <input ([ngModel])="expDate" type="Date" name="expDate" placeholder="Expiry Date Here.." class="form-control" required>
+                            <input [(ngModel)]="expDate" type="Date" name="expDate" placeholder="Expiry Date Here.." class="form-control" required>
                         </div>
                         <div class="col-sm-6 form-group">
-                            <input type="text" ([ngModel])="zipCode" name="zipCode" placeholder="Zip Code Here.." class="form-control" required>
+                            <input type="text" [(ngModel)]="zipCode" name="zipCode" placeholder="Zip Code Here.." class="form-control" required>
                         </div>
+                        <p>{{zipCode}}</p>
                     </div>
                     <p>By clicking "Sign Up", you agree to Uber's <span>Terms and Conditions</span> and <span>Privacy Policy</span>.</p>
                     <div class="form-group">
                         <p>Already use Uber?<br>
                             <a href="#" style="color: #6CF3A5">Sign In</a></p>
-                        <button type="button" class="btn btn-md btn-success">Sign up
+                        <button type="submit" class="btn btn-md btn-success" (click)="onSubmit()">Sign up
                           <span class="glyphicon glyphicon-arrow-right" style="color: white"></span>
                         </button>
                     </div>
+                    <p>{{customerDetails}}</p>
                 </div>
             </form>
         </div>
