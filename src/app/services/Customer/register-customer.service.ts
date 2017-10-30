@@ -2,39 +2,48 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { Customer } from '../../../Model/Customer.component';
 
 @Injectable()
 export class RegisterCustomerService {
 
-  POST_CUSTOMER_URL = 'http://192.168.2.39/UberEats/addCustomer.php';
+  POST_CUSTOMER_URL = 'http://localhost/UberEats/addCustomer.php';
 
   constructor(private http: Http) { }
 
-  // postNewCustomer(customer){ 
-  //   return this.http.post(this.POST_CUSTOMER_URL, customer).map(req => console.log('rtyui', req.json()));
-  // }
-  postNewCustomer(customer) {
-    return this.http.post(this.POST_CUSTOMER_URL, customer).toPromise().then(res =>
-      console.log('Success: ', res.json())).catch(res => console.log(JSON.stringify(res)));
+  postNewCustomer(customer: Customer) {
+    return this.http.post(this.POST_CUSTOMER_URL, customer)
+    .subscribe((req) => {
+      console.log('Success ', req.json);
+    }, (error) => {
+      console.log('Error!', error);
+    });
   }
-  
-  deleteCustomer(id){
-    return this.http.delete(this.POST_CUSTOMER_URL + '/' + id).toPromise()
-      .then()
-      .catch();
+  deleteCustomer(customer: Customer) {
+    return this.http.delete(this.POST_CUSTOMER_URL + '/' + customer.id).subscribe((req) => {
+      console.log('Success ', req.json);
+    }, (error) => {
+      console.log('Error!', error);
+    });
    }
 
-  updateCustomer(customer){ 
-    return this.http.put(this.POST_CUSTOMER_URL, customer).toPromise()
-      .then()
-      .catch();
+  updateCustomer(customer: Customer) {
+    return this.http.put(this.POST_CUSTOMER_URL, customer)
+      .subscribe((req) => {
+        console.log('Success ', req.json);
+      }, (error) => {
+        console.log('Error!', error);
+      });
   }
 
-  getAllCustomers(){ 
+  getAllCustomers() {
     return this.http.get(this.POST_CUSTOMER_URL).subscribe((data) => console.log(data));
   }
 
-  getCustomer(id){ 
-    return this.http.get(this.POST_CUSTOMER_URL + '/' + id).subscribe((data) => console.log(data));
+  getCustomer(customer: Customer) {
+    return this.http.get(this.POST_CUSTOMER_URL + '/' + customer._id)
+    .toPromise()
+    .then((data) => console.log(data.json))
+    .catch((error) => console.log('error!', error));
   }
 }

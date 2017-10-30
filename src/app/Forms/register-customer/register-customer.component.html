@@ -57,12 +57,13 @@
                     <div class="form-group">
                         <p>Already use Uber?<br>
                             <a href="#" style="color: #6CF3A5">Sign In</a></p>
-                        <button type="submit" class="btn btn-md btn-success" (click)="onSubmit()">Sign up
+                        <button type="submit" class="btn btn-md btn-success" (click)="onSubmit(customer)">Sign up
                           <span class="glyphicon glyphicon-arrow-right" style="color: white"></span>
                         </button>
                     </div>
                 </div>
             </form>
+            <p>{{ customer }}</p>
         </div>
     </div>
 </div>
