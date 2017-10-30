@@ -13,14 +13,11 @@ export class RegisterCustomerService {
 
   postNewCustomer(customer: Customer) {
     return this.http.post(this.POST_CUSTOMER_URL, customer)
-    .subscribe((req) => {
-      console.log('Success ', req.json);
-    }, (error) => {
-      console.log('Error!', error);
-    });
+    .map((data) => console.log(JSON.stringify(data))).toPromise();
   }
   deleteCustomer(customer: Customer) {
-    return this.http.delete(this.POST_CUSTOMER_URL + '/' + customer.id).subscribe((req) => {
+    // tslint:disable-next-line:whitespace
+    return this.http.delete(this.POST_CUSTOMER_URL+'/'+customer.id).subscribe((req) => {
       console.log('Success ', req.json);
     }, (error) => {
       console.log('Error!', error);
@@ -41,7 +38,7 @@ export class RegisterCustomerService {
   }
 
   getCustomer(customer: Customer) {
-    return this.http.get(this.POST_CUSTOMER_URL + '/' + customer._id)
+    return this.http.get(this.POST_CUSTOMER_URL + '/' + customer.id)
     .toPromise()
     .then((data) => console.log(data.json))
     .catch((error) => console.log('error!', error));

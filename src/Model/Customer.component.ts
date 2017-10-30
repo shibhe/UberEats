@@ -1,18 +1,14 @@
-export class Customer {  [x: string]: string;
-    id: string;
-    firstName: string;
-    lastName: string;
-    phoneNumber: string;
-    email: string;
-    password: string;
-    creditCard: string;
-    CVV: string;
-    expiryDate: string;
-    zipCode: string;
-
+export class Customer {
     constructor(
-    ) {
-        this.id = ' ';
-        this.firstName = null;
-    }
+        public id: string = '',
+        public firstName: string = '',
+        public lastName: string = '',
+        public phoneNumber: string = '',
+        public email: string = '',
+        public password: string = '',
+        public creditCard: string = '',
+        public CVV: string = '',
+        public expiryDate: string = '',
+        public zipCode: string = ''
+    ) { }
 }

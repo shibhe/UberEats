@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterCustomerService } from '../../services/Customer/register-customer.service';
 import { Customer } from '../../../Model/Customer.component';
-// import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-register-customer',
@@ -9,14 +9,18 @@ import { Customer } from '../../../Model/Customer.component';
   styleUrls: ['./register-customer.component.css']
 })
 export class RegisterCustomerComponent implements OnInit {
-  customer: Customer;
+  customer = new Customer();
 
   constructor(private service: RegisterCustomerService) { }
 
   ngOnInit() {
   }
 
-  onSubmit() {
-     this.service.postNewCustomer(this.customer);
+
+
+  OnSubmit() {
+      this.service.postNewCustomer(this.customer);
+      alert('Successfully added ');
+      this.customer = new Customer();
   }
 }
