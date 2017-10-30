@@ -19,24 +19,39 @@
                     </h3>
                     <div class="row">
                         <div class="col-sm-6 form-group">
-                            <input [(ngModel)]="customer.firstName" id="firstName" name="firstName" type="text" placeholder="First Name Here..." class="form-control" required minlength="2">
+                            <input [(ngModel)]="customer.firstName" id="firstName" name="firstName" type="text" placeholder="First Name Here..." class="form-control" required #firstName="ngModel" minlength="2">
+                            <small [hidden]="firstName.valid || (firstName.pristine && !f.submitted)" class="text-danger">
+                                First Name is required (minimum 2 characters).
+                             </small>
                         </div>
                         <div class="col-sm-6 form-group">
-                            <input [(ngModel)]="customer.lastName" id="lastName" name="lastName" type="text" placeholder="Last Name Here..." class="form-control" required>
+                            <input [(ngModel)]="customer.lastName" id="lastName" name="lastName" type="text" placeholder="Last Name Here..." class="form-control" required #lastName="ngModel" minlength="2">
+                            <small [hidden]="lastName.valid || (lastName.pristine && !f.submitted)" class="text-danger">
+                                Last Name is required (minimum 2 characters).
+                             </small>
                         </div>
                     </div>
                     <div class="form-group">
-                        <input [(ngModel)]="customer.phoneNumber" id="phoneNumber" name="phoneNumber" type="tel" placeholder="Phone number Here..." class="form-control" required>
+                        <input [(ngModel)]="customer.phoneNumber" id="phoneNumber" name="phoneNumber" type="tel" pattern="[0-9]{10}" placeholder="Phone number Here..." class="form-control" required #phoneNumber="ngModel" minlength="6" maxlength="10">
+                        <small [hidden]="phoneNumber.valid || (phoneNumber.pristine && !f.submitted)" class="text-danger">
+                                Phone number is required (+27 72 392 3176 ).
+                        </small>
                     </div>
                     <h3>Account<br>
                         <p>By creating an account you will be able to use it for both Uber and UberEATS.</p>
                     </h3>
                     <div class="row">
                         <div class="col-sm-6 form-group">
-                            <input [(ngModel)]="customer.email" id="email" name="email" type="email" placeholder="Email Here.." class="form-control" required>
+                            <input [(ngModel)]="customer.email" id="email" name="email" type="email" placeholder="Email Here.." class="form-control" required #email="ngModel" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$">
+                            <small [hidden]="email.valid || (email.pristine && !f.submitted)" class="text-danger">
+                                Email is required and format should be <i>joseph@gmail.com</i>.
+                            </small>
                         </div>
                         <div class="col-sm-6 form-group">
-                            <input [(ngModel)]="customer.password" id="password" name="password" type="password" placeholder="Password Here.." class="form-control" required>
+                            <input [(ngModel)]="customer.password" id="password" name="password" type="password" placeholder="Password Here.." pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" class="form-control" required #password="ngModel" minlength="5" maxlength="15">
+                            <small [hidden]="password.valid || (password.pristine && !f.submitted)" class="text-danger">
+                                    Password is required (Between 5-15 characters)
+                             </small>
                         </div>
                     </div>
                     <h3>Payment <br>
@@ -44,10 +59,16 @@
                     </h3>
                     <div class="row">
                         <div class="col-sm-6 form-group">
-                            <input [(ngModel)]="customer.creditCard" id="creditCard" name="creditCard" type="text" placeholder="Credit Card Here.." class="form-control" required>
+                            <input [(ngModel)]="customer.creditCard" id="creditCard" name="creditCard" type="text" placeholder="Credit Card Here.." class="form-control" required #creditCard="ngModel" maxlength="19">
+                            <small [hidden]="creditCard.valid || (creditCard.pristine && !f.submitted)" class="text-danger">
+                                Credit card number is required (19 digits).
+                        </small>
                         </div>
                         <div class="col-sm-6 form-group">
-                            <input [(ngModel)]="customer.CVV" id="CVV" name="CVV" type="type" placeholder="CVV Here.." class="form-control" required>
+                            <input [(ngModel)]="customer.CVV" id="CVV" name="CVV" type="type" placeholder="CVV Here.." class="form-control" required #CVV="ngModel" maxlength="4">
+                            <small [hidden]="CVV.valid || (CVV.pristine && !f.submitted)" class="text-danger">
+                                Card Verification Value is required (4 digits).
+                        </small>
                         </div>
                     </div>
                     <div class="row">
@@ -55,7 +76,10 @@
                             <input [(ngModel)]="customer.expDate" id="expDate" type="Date" name="expDate" placeholder="Expiry Date Here.." class="form-control" required>
                         </div>
                         <div class="col-sm-6 form-group">
-                            <input type="text" [(ngModel)]="customer.zipCode" id="zipCode" name="zipCode" placeholder="Zip Code Here.." class="form-control" required>
+                            <input type="text" [(ngModel)]="customer.zipCode" id="zipCode" name="zipCode" placeholder="Zip Code Here.." class="form-control" required #zipCode="ngModel" minlength="2" maxlength="10">
+                            <small [hidden]="zipCode.valid || (zipCode.pristine && !f.submitted)" class="text-danger">
+                                Zip code is required.
+                            </small>
                         </div>
                     </div>
 
@@ -63,11 +87,11 @@
                     <div class="form-group">
                         <p>Already use Uber?<br>
                             <a href="#" style="color: #6CF3A5">Sign In</a></p>
-                        <input type="submit" class="btn btn-md btn-success" value="Sign up">
+                        <input type="submit" class="btn btn-md btn-success" value="Sign up" style="margin-bottom: 5px">
+                        <input type="reset" value="Reset fields" class="btn btn-md btn-success" style="background-color: #85C1E9">
                     </div>
                 </div>
             </form>
-            <p>{{ customer }}</p>
         </div>
     </div>
 </div>
