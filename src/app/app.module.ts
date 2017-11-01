@@ -23,6 +23,11 @@ import { LoginComponent } from './Forms/login/login.component';
 
 // Services
 import { RegisterCustomerService } from './services/Customer/register-customer.service';
+import { CustHeaderComponent } from './Dashboard/Customer/cust-header/cust-header.component';
+import { CustBodyComponent } from './Dashboard/Customer/cust-body/cust-body.component';
+import { CustFooterComponent } from './Dashboard/Customer/cust-footer/cust-footer.component';
+import { CustMainComponent } from './Dashboard/Customer/cust-main/cust-main.component';
+import { ProfileComponent } from './Dashboard/Customer/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +37,12 @@ import { RegisterCustomerService } from './services/Customer/register-customer.s
     FooterComponent,
     TabsComponent,
     RegisterCustomerComponent,
-    LoginComponent
+    LoginComponent,
+    CustHeaderComponent,
+    CustBodyComponent,
+    CustFooterComponent,
+    CustMainComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
