@@ -50,6 +50,10 @@ import { RegisterCustomerService } from './services/Customer/register-customer.s
       {
         path: 'register.html',
         component: RegisterCustomerComponent
+      },
+      {
+        path: 'login.html',
+        component: LoginComponent
       }
     ]),
   HttpModule ],

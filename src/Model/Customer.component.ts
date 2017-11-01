@@ -9,6 +9,7 @@ export class Customer {
         public creditCard: string = '',
         public CVV: string = '',
         public expiryDate: string = '',
-        public zipCode: string = ''
+        public zipCode: string = '',
+        public userRole: string = ''
     ) { }
 }
