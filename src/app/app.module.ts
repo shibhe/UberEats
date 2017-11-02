@@ -23,6 +23,9 @@ import { LoginComponent } from './Forms/login/login.component';
 
 // Services
 import { RegisterCustomerService } from './services/Customer/register-customer.service';
+import { UserHeaderComponent } from './Dashboard/user-header/user-header.component';
+import { CustomerComponent } from './Dashboard/Customer/Body/customer/customer.component';
+import { ItemService } from './services/item.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,9 @@ import { RegisterCustomerService } from './services/Customer/register-customer.s
     FooterComponent,
     TabsComponent,
     RegisterCustomerComponent,
-    LoginComponent
+    LoginComponent,
+    UserHeaderComponent,
+    CustomerComponent
   ],
   imports: [
     BrowserModule,
@@ -50,11 +55,16 @@ import { RegisterCustomerService } from './services/Customer/register-customer.s
       {
         path: 'register.html',
         component: RegisterCustomerComponent
+      },
+      {
+        path: 'login.html',
+        component: LoginComponent
       }
     ]),
   HttpModule ],
   providers: [
-    RegisterCustomerService
+    RegisterCustomerService,
+    ItemService
   ],
   bootstrap: [AppComponent]
 })

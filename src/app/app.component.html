@@ -1,14 +1,14 @@
 <div class="container-fluid">
     <div class="row" style="background-color: white">
         <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
-            <header>
+            <header *ngIf="isLoggedIn; else header">
                 <app-header></app-header>
             </header>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12 col-xs-12 col-lg-12 col-sm-12">
-            <app-main>
+            <app-main *ngIf="isLoggedIn; else body">
             </app-main>
         </div>
     </div>
@@ -21,3 +21,11 @@
         </div>
     </div>
 </div>
+
+<ng-template #header>
+    <app-user-header></app-user-header>
+</ng-template>
+
+<ng-template #body>
+    <app-customer></app-customer>
+</ng-template>

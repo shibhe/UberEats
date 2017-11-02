@@ -10,17 +10,13 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 })
 export class RegisterCustomerComponent implements OnInit {
   customer = new Customer();
-
   constructor(private service: RegisterCustomerService) { }
 
   ngOnInit() {
   }
 
-
-
   OnSubmit() {
+    console.log(this.customer);
       this.service.postNewCustomer(this.customer);
-      alert('Successfully added ');
-      this.customer = new Customer();
   }
 }
