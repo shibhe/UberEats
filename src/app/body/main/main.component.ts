@@ -10,7 +10,10 @@ export class MainComponent implements OnInit {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   loggedIn: Boolean = false;
+=======
+>>>>>>> parent of e64cc39... Customer Dashboard
 =======
 >>>>>>> parent of e64cc39... Customer Dashboard
 =======
