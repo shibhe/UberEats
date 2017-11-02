@@ -59,13 +59,6 @@ import { ItemService } from './services/item.service';
       {
         path: 'login.html',
         component: LoginComponent
-<<<<<<< HEAD
-=======
-      },
-      {
-        path: 'Login/Dashboard.html',
-        component: CustMainComponent
->>>>>>> c688d357639c243ba19dc462cd6a8d3e8b96f4b3
       }
     ]),
   HttpModule ],
