@@ -10,6 +10,7 @@ export class Customer {
         public CVV: string = '',
         public expiryDate: string = '',
         public zipCode: string = '',
-        public userRole: string = ''
+        public userRole: string = '',
+        public rememberMe: boolean = false
     ) { }
 }

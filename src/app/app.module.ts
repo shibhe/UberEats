@@ -64,6 +64,10 @@ import { ProfileComponent } from './Dashboard/Customer/profile/profile.component
       {
         path: 'login.html',
         component: LoginComponent
+      },
+      {
+        path: 'Login/Dashboard.html',
+        component: CustMainComponent
       }
     ]),
   HttpModule ],

@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  loggedIn: Boolean = true;
+  loggedIn: Boolean = false;
   constructor() { }
 
   ngOnInit() {

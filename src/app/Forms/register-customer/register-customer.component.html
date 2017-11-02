@@ -57,9 +57,9 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="checkbox">
-                                <label class="radio-inline"><input type="radio" value="1" name="userRole" [(ngModel)]="customer.userRole" required>Customer</label>
-                                <label class="radio-inline"><input type="radio" value="2" name="userRole" [(ngModel)]="customer.userRole" required>Driver</label>
-                                <label class="radio-inline"><input type="radio" value="3" name="userRole" [(ngModel)]="customer.userRole" required>Restaurant</label>
+                                <label class="radio-inline"><input type="radio" value="Customer" name="userRole" [(ngModel)]="customer.userRole" required>Customer</label>
+                                <label class="radio-inline"><input type="radio" value="Driver" name="userRole" [(ngModel)]="customer.userRole" required>Driver</label>
+                                <label class="radio-inline"><input type="radio" value="Restaurant" name="userRole" [(ngModel)]="customer.userRole" required>Restaurant</label>
                             </div>
                         </div>
                     </div>
@@ -100,6 +100,7 @@
                         <input type="reset" value="Reset fields" class="btn btn-md btn-success" style="background-color: #85C1E9">
                     </div>
                 </div>
+                {{ customer | json }}
             </form>
         </div>
     </div>
