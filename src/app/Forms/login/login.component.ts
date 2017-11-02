@@ -17,10 +17,7 @@ export class LoginComponent implements OnInit {
   // tslint:disable-next-line:one-line
   onSubmit(){
     this.service.customerLogIn(this.customer);
-<<<<<<< HEAD
-=======
     alert('Successfully Logged in');
     this.customer = new Customer();
->>>>>>> c688d357639c243ba19dc462cd6a8d3e8b96f4b3
   }
 }
