@@ -18,5 +18,10 @@ export class RegisterCustomerComponent implements OnInit {
   OnSubmit() {
     console.log(this.customer);
       this.service.postNewCustomer(this.customer);
+<<<<<<< HEAD
+=======
+      // alert('Successfully added ');
+      // this.customer = new Customer();
+>>>>>>> c688d357639c243ba19dc462cd6a8d3e8b96f4b3
   }
 }
