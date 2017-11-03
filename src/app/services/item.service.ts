@@ -31,8 +31,6 @@ export class ItemService {
   }
 
   removeAllItems(): void {
-    // this.item = this.selectedItems.slice();
-    // this.itemIndex = this.selectedItems.indexOf(this.item);
     this.selectedItems.splice(this.itemIndex, 1);
   }
 

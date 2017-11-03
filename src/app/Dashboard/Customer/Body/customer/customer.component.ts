@@ -14,6 +14,7 @@ export class CustomerComponent implements OnInit {
   public subTotalAmt = 0;
   public isEnabled = false;
   public seletedItems: OnlineCart[] = [];
+  public itemIndex;
 
   constructor(private itemService: ItemService) { }
   getStoreItems(): void {
@@ -47,5 +48,14 @@ export class CustomerComponent implements OnInit {
     this.numCartItems = 0;
     this.isEnabled = false;
     this.subTotalAmt = 0;
+    this.removeSelectedItems();
+  }
+
+  orderItems(){
+    alert("Order delivered");
+  }
+
+  removeSelectedItems(): void {
+    this.seletedItems.splice(this.itemIndex, 1000);
   }
 }

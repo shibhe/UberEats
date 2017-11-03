@@ -12,9 +12,4 @@ export class AppComponent {
 
   isLoggedIn = false;
 
-
-  //ngOnInit(){
-      //this.isLoggedIn = this.dashboardService.hideDashboard;
-  //}
-
 }
