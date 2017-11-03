@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NumberOfItems } from '../../../Model/NumberOfItems';
 
 @Component({
   selector: 'app-user-header',
@@ -8,8 +7,6 @@ import { NumberOfItems } from '../../../Model/NumberOfItems';
 })
 export class UserHeaderComponent implements OnInit {
 
-
-  count:  Number = 12;
   constructor() { }
 
   ngOnInit() {

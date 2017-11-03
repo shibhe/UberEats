@@ -11,6 +11,7 @@ export class ItemService {
   getItems(): OnlineCart[] {
     return ITEMS;
   }
+
   getSelectedItems(): OnlineCart[] {
     return this.selectedItems;
   }
@@ -21,9 +22,16 @@ export class ItemService {
       this.selectedItems.push(this.item);
     }
   }
+
   removeItem(id: number): void {
      this.item = this.selectedItems.find(ob => ob.id === id);
      this.itemIndex = this.selectedItems.indexOf(this.item);
+    this.selectedItems.splice(this.itemIndex, 1);
+  }
+
+  removeAllItems(): void {
+    // this.item = this.selectedItems.slice();
+    // this.itemIndex = this.selectedItems.indexOf(this.item);
     this.selectedItems.splice(this.itemIndex, 1);
   }
 

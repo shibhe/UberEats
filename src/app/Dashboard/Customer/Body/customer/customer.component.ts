@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OnlineCart } from '../../../../../Model/OnlineCart.component';
 import { ItemService } from '../../../../services/item.service';
-import { NumberOfItems } from '../../../../../Model/NumberOfItems';
 
 @Component({
   selector: 'app-customer',
@@ -11,8 +10,10 @@ import { NumberOfItems } from '../../../../../Model/NumberOfItems';
 export class CustomerComponent implements OnInit {
 
   cartItems: OnlineCart[];
-  numOfItems: NumberOfItems;
-  numOfItem: number;
+  numCartItems = 0;
+  subTotalAmt = 193.50;
+  isEnabled = false;
+  // numOfItem: number;
 
   constructor(private itemService: ItemService) { }
   getStoreItems(): void {
@@ -21,8 +22,27 @@ export class CustomerComponent implements OnInit {
   ngOnInit(): void {
      this.getStoreItems();
   }
+
   addItemInCart(id: number): void {
      this.itemService.addItem(id);
-    this.numOfItem = this.numOfItems.numOfItems++;
+     this.numCartItems = this.numCartItems + 1;
+     this.isEnabled = true;
+  }
+
+  // tslint:disable-next-line:one-line
+  removeItemInCart(id: number){
+    this.itemService.removeItem(id);
+    this.numCartItems = this.numCartItems - 1;
+
+    // tslint:disable-next-line:one-line
+    if (this.numCartItems === 0){
+      this.isEnabled = false;
+    }
+  }
+  // tslint:disable-next-line:one-line
+  EmptyCart(){
+    this.itemService.removeAllItems();
+    this.numCartItems = 0;
+    this.isEnabled = false;
   }
 }

@@ -1,18 +1,19 @@
 <div class="container">
     <div class="row">
-        <div class="col-lg-9">
+        <div class="col-lg-8 col-sm-8 col-md-8">
+            <h1 style="padding-bottom: 19px">Choose your favourite meal...</h1>
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12 col-sm-12 col-md-12">
                     <ul *ngFor="let onlineCart of cartItems">
                         <li>
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    KFC
+                            <div class="panel panel-default ">
+                                <div class="panel-body ">
+                                    {{ onlineCart.shopName }}
                                 </div>
-                                <div class="panel-footer">
-                                    <div class="row">
-                                        <div class="col-lg-5 col-sm-5 col-md-5">
-                                            <img src="./assets/images/uber.jpg" alt="Uber Eats">
+                                <div class="panel-footer ">
+                                    <div class="row ">
+                                        <div class="col-lg-6 col-sm-6 col-md-6">
+                                            <img src="./assets/images/uber.jpg " alt="Uber Eats ">
                                         </div>
                                         <div class="col-lg-6 col-sm-6 col-md-6">
                                             <h3><strong>
@@ -24,7 +25,8 @@
                                             <p>
                                                 <p>{{ onlineCart.description }}
                                                 </p>
-                                                <button type="button" class="btn btn-success" (click)="addItemInCart(onlineCart.id)">Add to Cart</button>
+                                                <button type="button" style="margin-bottom: 3px; background-color: #196F3D" class="btn btn-success" (click)="addItemInCart(onlineCart.id)">Add to Cart</button>
+                                                <button type="button" style="background-color: #943126" *ngIf="isEnabled" (click)="removeItemInCart(onlineCart.id)" class="btn btn-success ">Remove item from cart</button>
                                         </div>
                                     </div>
                                 </div>
@@ -34,8 +36,16 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3">
-
+        <div class="col-lg-4 col-sm-4 col-md-4">
+            <h3>Your shopping Basket</h3>
+            <h5>Sub Total ({{ numCartItems }} items): R {{ subTotalAmt }}</h5>
+            <br>
+            <br>
+            <button style="width: 100%; margin-bottom: 17px; background-color: #515A5A" (click)="orderItems(onlineCart.id)" type="button" class="btn btn-success">Checkout or Order Now</button>
+            <br>
+            <p style="text-align: center; font-size: large">Or</p>
+            <br>
+            <button type="button" style="width: 100%; background-color: #283747" (click)="EmptyCart()" class="btn btn-success">Empty shopping basket</button>
         </div>
     </div>
 </div>
