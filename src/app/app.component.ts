@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RegisterCustomerService } from './services/Customer/register-customer.service';
 import { DashboardService } from './services/dashboard-service';
 
@@ -6,15 +6,15 @@ import { DashboardService } from './services/dashboard-service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [RegisterCustomerService, DashboardService]
+  providers: [RegisterCustomerService]
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
-  isLoggedIn = true;
-  constructor(private dashboardService: DashboardService){}
+  isLoggedIn = false;
 
-  ngOnInit(){
-      this.isLoggedIn = this.dashboardService.hideDashboard;
-  }
+
+  //ngOnInit(){
+      //this.isLoggedIn = this.dashboardService.hideDashboard;
+  //}
 
 }
