@@ -9,11 +9,11 @@ import { ItemService } from '../../../../services/item.service';
 })
 export class CustomerComponent implements OnInit {
 
-  cartItems: OnlineCart[];
-  numCartItems = 0;
-  subTotalAmt = 193.50;
-  isEnabled = false;
-  // numOfItem: number;
+  public cartItems: OnlineCart[];
+  public numCartItems = 0;
+  public subTotalAmt = 0;
+  public isEnabled = false;
+  public seletedItems: OnlineCart[] = [];
 
   constructor(private itemService: ItemService) { }
   getStoreItems(): void {
@@ -27,13 +27,15 @@ export class CustomerComponent implements OnInit {
      this.itemService.addItem(id);
      this.numCartItems = this.numCartItems + 1;
      this.isEnabled = true;
+     this.subTotalAmt = this.subTotalAmt + this.itemService.getSelectedItemAmount(id);
+     this.seletedItems = this.itemService.getSelectedItems();
   }
 
   // tslint:disable-next-line:one-line
   removeItemInCart(id: number){
     this.itemService.removeItem(id);
     this.numCartItems = this.numCartItems - 1;
-
+    
     // tslint:disable-next-line:one-line
     if (this.numCartItems === 0){
       this.isEnabled = false;
@@ -44,5 +46,6 @@ export class CustomerComponent implements OnInit {
     this.itemService.removeAllItems();
     this.numCartItems = 0;
     this.isEnabled = false;
+    this.subTotalAmt = 0;
   }
 }
