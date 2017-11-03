@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterCustomerService } from '../../services/Customer/register-customer.service';
 import { Customer } from '../../../Model/Customer.component';
+import { DashboardService } from '../../services/dashboard-service';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { Customer } from '../../../Model/Customer.component';
 })
 export class LoginComponent implements OnInit {
   customer = new Customer();
-  constructor(private service: RegisterCustomerService) { }
+  constructor(private service: RegisterCustomerService, private DashboardService: DashboardService) { }
 
   ngOnInit() {
   }
@@ -19,5 +20,6 @@ export class LoginComponent implements OnInit {
     this.service.customerLogIn(this.customer);
     alert('Successfully Logged in');
     this.customer = new Customer();
+    this.DashboardService.hideDashboard = false;
   }
 }

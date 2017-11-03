@@ -7,7 +7,7 @@ import { Customer } from '../../../Model/Customer.component';
 @Injectable()
 export class RegisterCustomerService {
   private headers: Headers = new Headers({ 'Content-Type': 'application/json' });
-  private BASE_URL: String = 'http://localhost/UberEats';
+  private BASE_URL: String = 'https://uncreditable-window.000webhostapp.com';
 
   constructor(private http: Http) { }
 
