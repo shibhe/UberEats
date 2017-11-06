@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Customer } from '../../../Model/Customer.component';
 
 @Component({
   selector: 'app-main',
@@ -8,12 +7,10 @@ import { Customer } from '../../../Model/Customer.component';
 })
 export class MainComponent implements OnInit {
 
-  customer: Customer;
-  isLogged;
+  loggedIn: Boolean = false;
   constructor() { }
 
   ngOnInit() {
-    this.isLogged = this.customer.isLogged;
   }
 
 }

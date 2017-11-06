@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RegisterCustomerService } from './services/Customer/register-customer.service';
 import { DashboardService } from './services/dashboard-service';
-import { Customer } from '../Model/Customer.component';
 
 @Component({
   selector: 'app-root',
@@ -10,12 +9,5 @@ import { Customer } from '../Model/Customer.component';
   providers: [RegisterCustomerService]
 })
 export class AppComponent {
-  customer: Customer;
-  isLogged;
-  constructor() { }
-
-  ngOnInit() {
-    this.isLogged = this.customer.isLogged;
-  }
 
 }

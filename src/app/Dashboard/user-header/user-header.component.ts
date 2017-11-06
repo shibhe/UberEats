@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Customer } from '../../../Model/Customer.component';
 
 @Component({
   selector: 'app-user-header',
@@ -8,12 +7,7 @@ import { Customer } from '../../../Model/Customer.component';
 })
 export class UserHeaderComponent implements OnInit {
 
-  currentUser = Customer;
-  AuthUser: Customer[];
-
-  constructor() { 
-   this.currentUser = JSON.parse(localStorage.getItem("email"));
-  }
+  constructor() { }
 
   ngOnInit() {
   }
