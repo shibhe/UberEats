@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { RegisterCustomerService } from '../../services/Customer/register-customer.service';
 import { Customer } from '../../../Model/Customer.component';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
+import { DashboardService } from '../../services/dashboard-service';
+import { AlertService } from '../../services/Alert.service';
 
 @Component({
   selector: 'app-register-customer',
@@ -10,15 +13,29 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 })
 export class RegisterCustomerComponent implements OnInit {
   customer = new Customer();
-  constructor(private service: RegisterCustomerService) { }
+  loading = false;
+
+  constructor(private userService: RegisterCustomerService,
+    private router: Router,
+    private alertService: AlertService,) { }
 
   ngOnInit() {
+
   }
 
   OnSubmit() {
-    console.log(this.customer);
-      this.service.postNewCustomer(this.customer);
-      // alert('Successfully added ');
-      // this.customer = new Customer();
+     this.loading = true;
+     this.userService.postNewCustomer(this.customer)
+         .subscribe(
+             data => {
+                 this.alertService.success('Registration successful', true);
+                 this.router.navigate(['/login.html']);
+                 console.log(JSON.stringify(data));
+             },
+             error => {
+                 this.alertService.error(error);
+                 this.loading = false;
+                 console.log(JSON.stringify(error));
+             });
   }
 }

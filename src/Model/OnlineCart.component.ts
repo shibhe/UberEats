@@ -6,6 +6,7 @@ export class OnlineCart {
         public itemPrice: number = 0,
         // public itemImage: string = '',
         public description: string = '',
-        // public userID: string = ''
+        // public userID: string = '',
+        // public location: string = ''
     ) { }
 }

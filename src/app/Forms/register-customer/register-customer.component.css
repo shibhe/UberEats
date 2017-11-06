@@ -130,3 +130,7 @@ p {
         border-bottom: 0;
     }
 }
+
+button{
+    height: 35px;
+}

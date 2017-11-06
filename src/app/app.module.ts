@@ -26,6 +26,16 @@ import { RegisterCustomerService } from './services/Customer/register-customer.s
 import { UserHeaderComponent } from './Dashboard/user-header/user-header.component';
 import { CustomerComponent } from './Dashboard/Customer/Body/customer/customer.component';
 import { ItemService } from './services/item.service';
+import { DriverComponent } from './Dashboard/Driver/driver/driver.component';
+import { OrderComponent } from './Dashboard/Driver/Driver/order/order.component';
+import { UpcomingComponent } from './Dashboard/Driver/Driver/upcoming/upcoming.component';
+import { RestaurantComponent } from './Dashboard/Restaurant/restaurant/restaurant.component';
+import { AddItemsComponent } from './Dashboard/Restaurant/add-items/add-items.component';
+import { ViewOrdersComponent } from './Dashboard/Restaurant/view-orders/view-orders.component';
+import { DashboardService } from './services/dashboard-service';
+import { MainDashboardComponent } from './Dashboard/main-dashboard/main-dashboard.component';
+import { AlertService } from './services/Alert.service';
+import { AuthenticationService } from './services/AuthenticateService';
 
 @NgModule({
   declarations: [
@@ -37,7 +47,14 @@ import { ItemService } from './services/item.service';
     RegisterCustomerComponent,
     LoginComponent,
     UserHeaderComponent,
-    CustomerComponent
+    CustomerComponent,
+    DriverComponent,
+    OrderComponent,
+    UpcomingComponent,
+    RestaurantComponent,
+    AddItemsComponent,
+    ViewOrdersComponent,
+    MainDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -59,12 +76,21 @@ import { ItemService } from './services/item.service';
       {
         path: 'login.html',
         component: LoginComponent
+      },
+      {
+        path: 'Dashboard.html', component: MainDashboardComponent        
+      },
+      {
+         path: '**', redirectTo: '' 
       }
     ]),
   HttpModule ],
   providers: [
     RegisterCustomerService,
-    ItemService
+    ItemService,
+    DashboardService,
+    AlertService,
+    AuthenticationService
   ],
   bootstrap: [AppComponent]
 })

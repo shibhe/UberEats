@@ -12,7 +12,7 @@
 
     <div class="col-lg-12 well">
         <div class="row">
-            <form (submit)="OnSubmit()">
+            <form>
                 <div class="col-sm-12">
                     <h3>Profile<br>
                         <p>By creating an account you will be able to use it for both Uber and UberEATS.</p>
@@ -96,7 +96,9 @@
                     <div class="form-group">
                         <p>Already use Uber?<br>
                             <a href="#" style="color: #6CF3A5">Sign In</a></p>
-                        <input type="submit" class="btn btn-md btn-success" value="Sign up" style="margin-bottom: 5px">
+                            <button class="btn btn-md btn-success" (click)="OnSubmit()" style="margin-bottom: 5px">Submit Registration
+                                <i class="fa fa-arrow-right" style="text-align: right"></i>
+                            </button>
                         <input type="reset" value="Reset fields" class="btn btn-md btn-success" style="background-color: #85C1E9">
                     </div>
                 </div>

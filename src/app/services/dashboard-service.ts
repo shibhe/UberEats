@@ -2,5 +2,5 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class DashboardService {
-    hideDashboard: boolean = true;   
+    hideDashboard: boolean = false;   
 }

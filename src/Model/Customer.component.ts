@@ -11,6 +11,7 @@ export class Customer {
         public expiryDate: string = '',
         public zipCode: string = '',
         public userRole: string = '',
-        public rememberMe: boolean = false
+        public rememberMe: boolean = false,
+        public isLogged: boolean = true
     ) { }
 }

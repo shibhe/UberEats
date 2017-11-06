@@ -1,0 +1,14 @@
+
+ul li:focus{
+color: #95A5A6;
+}
+ul li a{
+    color: #2C3E50;
+}
+
+ul li a:hover, 
+ul li a:focus,
+ul li a::after,
+ul li a::before{
+    color: #2C3E50;
+}
