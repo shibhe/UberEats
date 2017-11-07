@@ -34,20 +34,9 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(this.customer.email, this.customer.password)
         .subscribe(
             data => {
-             this.customer.isLogged = true;
-             if (this.customer.isLogged){
-                if (this.customer.userRole === "Customer"){
-                  this.router.navigate([this.returnUrl]);
-                }
-                else if (this.customer.userRole === "Driver"){
-                  this.router.navigate([this.returnUrl]);
-                }
-                else if (this.customer.userRole === "Restaurant"){
-                  this.router.navigate([this.returnUrl]);
-                }
-             }
-                //this.router.navigate([this.returnUrl]);
-               // console.log(JSON.stringify(data));
+                this.customer.isLogged = true;
+                this.alertService.success('Login successful', true);
+                this.router.navigate(['/login.html/username?role?1']);
             },
             error => {
                 this.alertService.error(error);

@@ -33,9 +33,9 @@ import { RestaurantComponent } from './Dashboard/Restaurant/restaurant/restauran
 import { AddItemsComponent } from './Dashboard/Restaurant/add-items/add-items.component';
 import { ViewOrdersComponent } from './Dashboard/Restaurant/view-orders/view-orders.component';
 import { DashboardService } from './services/dashboard-service';
-import { MainDashboardComponent } from './Dashboard/main-dashboard/main-dashboard.component';
 import { AlertService } from './services/Alert.service';
 import { AuthenticationService } from './services/AuthenticateService';
+import { RegisterDriverComponent } from './Forms/register-driver/register-driver.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +54,7 @@ import { AuthenticationService } from './services/AuthenticateService';
     RestaurantComponent,
     AddItemsComponent,
     ViewOrdersComponent,
-    MainDashboardComponent
+    RegisterDriverComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,11 +78,21 @@ import { AuthenticationService } from './services/AuthenticateService';
         component: LoginComponent
       },
       {
-        path: 'Dashboard.html', component: MainDashboardComponent        
+         path: 'home.html', component: MainComponent
       },
       {
-         path: '**', redirectTo: '' 
-      }
+        path: 'login.html/username/role/1', component: CustomerComponent 
+     },
+     {
+         path: 'login.html/username?role?2', component: DriverComponent
+      },
+      {
+        path: 'login.html/username?role?3', component: RestaurantComponent
+     },
+     {
+       path: 'driver.html',
+       component: RegisterDriverComponent
+     }
     ]),
   HttpModule ],
   providers: [

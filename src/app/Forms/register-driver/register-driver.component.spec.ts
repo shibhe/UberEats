@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MainDashboardComponent } from './main-dashboard.component';
+import { RegisterDriverComponent } from './register-driver.component';
 
-describe('MainDashboardComponent', () => {
-  let component: MainDashboardComponent;
-  let fixture: ComponentFixture<MainDashboardComponent>;
+describe('RegisterDriverComponent', () => {
+  let component: RegisterDriverComponent;
+  let fixture: ComponentFixture<RegisterDriverComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MainDashboardComponent ]
+      declarations: [ RegisterDriverComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MainDashboardComponent);
+    fixture = TestBed.createComponent(RegisterDriverComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

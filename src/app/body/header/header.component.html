@@ -8,9 +8,9 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#" style="letter-spacing: 2px;"><strong style="color: black">UBER</strong> <strong style="color: #58D68D">EATS</strong></a>
+                    <a class="navbar-brand" routerLink="/home.html" routerLinkActive="is-active" style="letter-spacing: 2px;"><strong style="color: black">UBER</strong> <strong style="color: #58D68D">EATS</strong></a>
                 </div>
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav" *ngIf="!isLogged; else isLoggedList">
                     <li class="active">
                         <a routerLink="/login.html" class="btn btn-md btn-default">Sign In</a>
                     </li>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="search">
                     <form method="post ">
-                        <div class="input-group " style="height: 50px ">
+                        <div class="input-group " style="height: 50px">
                             <span class="input-group-addon " style="background-color: white "><i  class="glyphicon glyphicon-map-marker "></i></span>
                             <input style="height: 50px;border-left: none; " type="search " class="form-control" placeholder="Enter your delivery address" name="searchResults" [(ngModel)]="searchResults">
                             <span class="input-group-btn ">
@@ -46,3 +46,10 @@
         </div>
     </div>
 </nav>
+
+<ng-template #isLoggedList>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="active " style="padding-right: 4px "><p style="color:black; margin-top: 9px; padding-right: 10px "><i style="color:black;padding-right: 4px" class="fa fa-user"></i>{{ customer.firstName }} {{ customer.lastName }}</p></li>
+            <li class="active " style="padding-right: 4px "><button class="btn btn-success" (click)="logout()" style="background-color:#212F3D ">Sign Out</button></li>
+        </ul>
+</ng-template>

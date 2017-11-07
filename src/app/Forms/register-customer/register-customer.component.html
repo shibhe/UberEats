@@ -95,8 +95,8 @@
                     <p>By clicking "Sign Up", you agree to Uber's <span>Terms and Conditions</span> and <span>Privacy Policy</span>.</p>
                     <div class="form-group">
                         <p>Already use Uber?<br>
-                            <a href="#" style="color: #6CF3A5">Sign In</a></p>
-                            <button class="btn btn-md btn-success" (click)="OnSubmit()" style="margin-bottom: 5px">Submit Registration
+                            <a routerLink="/login.html" style="color: #6CF3A5">Sign In</a></p>
+                            <button [disabled]="loading" class="btn btn-md btn-success" (click)="OnSubmit()" style="margin-bottom: 5px">Submit Registration
                                 <i class="fa fa-arrow-right" style="text-align: right"></i>
                             </button>
                         <input type="reset" value="Reset fields" class="btn btn-md btn-success" style="background-color: #85C1E9">

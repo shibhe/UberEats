@@ -9,12 +9,11 @@
         <form action="" method="post" name="Login_Form" class="form-signin">
             <h3 class="form-signin-heading">UberEats. Please Sign In</h3>
             <hr class="colorgraph"><br>
-
-            <input type="text" class="form-control" name="emailOrPhone" placeholder="Email or Phone number" required="" autofocus="" />
-            <input type="password" class="form-control" name="Password" placeholder="Password" required="" />
+            <input type="email" class="form-control" style="margin-bottom: 4px; margin-top: 6px" [(ngModel)]="customer.email" name="email" placeholder="Email" required="" autofocus="" />
+            <input type="password" class="form-control" [(ngModel)]="customer.password" name="Password" placeholder="Password" required="" />
             <div id="remember" class="checkbox">
                 <label>
-                        <input type="checkbox" value="remember-me"> Remember me
+                        <input type="checkbox" value="remember-me" [(ngModel)]="customer.rememberMe"> Remember me
                 </label>
             </div>
                 <button class="btn btn-lg btn-primary btn-block" (click)="onSubmit()" name="Submit" value="Login" type="Submit">Login</button>
