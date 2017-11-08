@@ -9,27 +9,40 @@ import { DashboardService } from '../dashboard-service';
 @Injectable()
 export class RegisterCustomerService {
   private headers: Headers = new Headers({ 'Content-Type': 'application/json' });
-  private BASE_URL: String = 'https://uncreditable-window.000webhostapp.com';
+  private BASE_URL: String = 'http://localhost/ubereats';
+  private isLoggedIn;
+ // public userData: Customer[] = [];
 
-  constructor(private http: Http, private dashboardService: DashboardService) { }
+  constructor(private http: Http) {
+    this.isLoggedIn = true;
+   }
 
   postNewCustomer(customer: Customer) {
     return this.http.post(`${this.BASE_URL}/addCustomer.php`, customer, { headers: this.headers })
     .map((data) => console.log(JSON.stringify(data)));
   }
 
-login(username: string, password: string) {
-    return this.http.post(`${this.BASE_URL}/login.php`, JSON.stringify({ username: username, password: password }), { headers: this.headers })
-        .map((response: Response) => {
-            let user = response.json();
-              if (user && user.token) {
-                  localStorage.setItem('customer', JSON.stringify(user))
-              }
-            });
+login(customer: Customer) {
+    return this.http.post(`${this.BASE_URL}/login.php`, customer, { headers: this.headers })
+      .toPromise()
+      .then((data: Response) => {
+         console.log(JSON.stringify(data))
+    })
+    .catch((error) => console.log(error));
+   
   }
 
   logout() {
       // remove user from local storage to log user out
       localStorage.removeItem('customer');
   }
+
+  setIsLoggedIn(){
+    this.isLoggedIn = true;
+  }
+  
+  getIsLoggedIn(){
+    return this.isLoggedIn;
+  }
+
 }

@@ -36,6 +36,7 @@ import { DashboardService } from './services/dashboard-service';
 import { AlertService } from './services/Alert.service';
 import { AuthenticationService } from './services/AuthenticateService';
 import { RegisterDriverComponent } from './Forms/register-driver/register-driver.component';
+import { AuthGuard } from './Auth/auth.guard';
 
 @NgModule({
   declarations: [
@@ -81,13 +82,14 @@ import { RegisterDriverComponent } from './Forms/register-driver/register-driver
          path: 'home.html', component: MainComponent
       },
       {
-        path: 'login.html/username/role/1', component: CustomerComponent 
+        path: 'login/username/userRole=1', component: CustomerComponent,
+        canActivate: [AuthGuard] 
      },
      {
-         path: 'login.html/username?role?2', component: DriverComponent
+         path: 'login.html/username/userRole=2', component: DriverComponent
       },
       {
-        path: 'login.html/username?role?3', component: RestaurantComponent
+        path: 'login.html/username/userRole=3', component: RestaurantComponent
      },
      {
        path: 'driver.html',
@@ -100,7 +102,8 @@ import { RegisterDriverComponent } from './Forms/register-driver/register-driver
     ItemService,
     DashboardService,
     AlertService,
-    AuthenticationService
+    AuthenticationService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

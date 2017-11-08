@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Customer } from '../../../Model/Customer.component';
 import { RegisterCustomerService } from '../../services/Customer/register-customer.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -12,24 +12,25 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   searchResults: String = '';
-  isLogged: boolean;
+  isLogged: boolean = true;
   customer: Customer;
-  email: string;
-  //userCredentials = JSON.parse(localStorage.getItem('customer'));
- //public fist:string
-
-
-  constructor(private registerCustomerService:RegisterCustomerService, private router: Router) { }
+  firstName: string;
+  public  lastName;
+ 
+  constructor(private registerCustomerService:RegisterCustomerService,
+     private router: Router, 
+     private route: ActivatedRoute) { }
  
   ngOnInit() {
-     // this.userName:string=userCredentials.userName;
-    // this.email = localStorage.getItem('customer');
-     this.isLogged = false;
+     this.firstName = "Joseph";
+     this.lastName = "Sibiyaa";
+    this.isLogged = this.registerCustomerService.getIsLoggedIn();
+    console.log(this.firstName);
   }
 
   logout(){
      this.registerCustomerService.logout();
      this.router.navigate(['/login.html']);
-     this.isLogged = true;
+     this.isLogged = false;
   }
 }

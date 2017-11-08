@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { OnlineCart } from '../../../../../Model/OnlineCart.component';
 import { ItemService } from '../../../../services/item.service';
+import { RegisterCustomerService } from '../../../../services/Customer/register-customer.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-customer',
@@ -15,8 +17,17 @@ export class CustomerComponent implements OnInit {
   public isEnabled = false;
   public seletedItems: OnlineCart[] = [];
   public itemIndex;
+  public firstName;
+  public  lastName;
+  public  id;
+  public  email;
+  public  status;
+  public isLogged: boolean;
 
-  constructor(private itemService: ItemService) { }
+  constructor(private itemService: ItemService,
+     private registerCustomerService:RegisterCustomerService,
+     private route: ActivatedRoute) { }
+
   getStoreItems(): void {
      this.cartItems = this.itemService.getItems();
   }

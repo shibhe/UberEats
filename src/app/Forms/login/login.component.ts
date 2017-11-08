@@ -31,17 +31,9 @@ export class LoginComponent implements OnInit {
   // tslint:disable-next-line:one-line
   onSubmit(){
     this.loading = true;
-    this.authenticationService.login(this.customer.email, this.customer.password)
-        .subscribe(
-            data => {
-                this.customer.isLogged = true;
-                this.alertService.success('Login successful', true);
-                this.router.navigate(['/login.html/username?role?1']);
-            },
-            error => {
-                this.alertService.error(error);
-                this.loading = false;
-                console.log(JSON.stringify(error));
-            });
+    this.authenticationService.login(this.customer);
+    this.alertService.success('Login successful', true);
+    this.authenticationService.setIsLoggedIn();
+    this.router.navigate(['/login/username/userRole=1']);
   }
 }
