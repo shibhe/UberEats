@@ -26,6 +26,11 @@ input, select{
     margin: 0px;
 }
 
+a:hover{
+ text-decoration: none;
+ color: #AAB7B8;
+ background-color: white;
+}
 
 
 input::-webkit-outer-spin-button,
