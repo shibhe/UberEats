@@ -31,9 +31,26 @@ export class LoginComponent implements OnInit {
   // tslint:disable-next-line:one-line
   onSubmit(){
     this.loading = true;
-    this.authenticationService.login(this.customer);
-    this.alertService.success('Login successful', true);
-    this.authenticationService.setIsLoggedIn();
-    this.router.navigate(['/login/username/userRole=1']);
+    let email = this.customer.email;
+    let password = this.customer.password;
+    this.authenticationService.login(email, password)
+    .subscribe((custData) =>
+    {
+      if (custData.success === "true"){
+        sessionStorage.setItem("firstName", custData.firstName);
+        sessionStorage.setItem("lastName", custData.lastName);
+        sessionStorage.setItem("id", custData.id);
+        sessionStorage.setItem("email", custData.email);
+        alert(custData.message + " " + custData.firstName);
+        this.alertService.success('Login successful', true);
+        this.router.navigate(['/login/username/userRole=1']);
+        sessionStorage.setItem("success", custData.success);
+        this.authenticationService.setIsLoggedIn();
+      }
+      else if (custData.status == 0){
+        alert("Please check your internet connection or maybe the server is donw");
+        this.loading = false;
+      }
+    });
   }
 }

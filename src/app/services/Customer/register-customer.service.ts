@@ -11,30 +11,29 @@ export class RegisterCustomerService {
   private headers: Headers = new Headers({ 'Content-Type': 'application/json' });
   private BASE_URL: String = 'http://localhost/ubereats';
   private isLoggedIn;
- // public userData: Customer[] = [];
+  public userData = new Customer();
 
   constructor(private http: Http) {
     this.isLoggedIn = true;
-   }
+  }
+
+  getCustomerData(){
+    return this.userData
+  }
 
   postNewCustomer(customer: Customer) {
     return this.http.post(`${this.BASE_URL}/addCustomer.php`, customer, { headers: this.headers })
     .map((data) => console.log(JSON.stringify(data)));
   }
 
-login(customer: Customer) {
-    return this.http.post(`${this.BASE_URL}/login.php`, customer, { headers: this.headers })
-      .toPromise()
-      .then((data: Response) => {
-         console.log(JSON.stringify(data))
-    })
-    .catch((error) => console.log(error));
-   
+login(email: string, password: string) {
+    return this.http.post(`${this.BASE_URL}/login.php`, {email: email, password: password}, { headers: this.headers })
+    .map(res => res.json());
   }
 
   logout() {
       // remove user from local storage to log user out
-      localStorage.removeItem('customer');
+      sessionStorage.clear();
   }
 
   setIsLoggedIn(){

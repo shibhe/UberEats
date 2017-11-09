@@ -1,0 +1,128 @@
+<div class="container">
+  <div class="text-center">
+      <h1 class="nice">Partner with us</h1>
+  </div>
+  <form class="form-horizontal" method="post"
+        action="#">
+      <!-- Text input-->
+      <div class="form-group">
+         <div class="row">
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                 <input id="name" name="name" type="text" placeholder="Sandton, South Africa" class="form-control input-md" required="">
+            </div>
+         </div>
+      </div>
+    
+      <!-- Email input-->
+      <div class="form-group">
+         <div class="row">
+                <div class="col-md-6 col-lg-6 col-sm-6">
+                    <input id="email" name="email" type="email" placeholder="Restaurant Name"
+                        class="form-control input-md">
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6">
+                    <input id="weight" name="weight" type="number" placeholder="Zip or Postal Code (Primary Location)"
+                        class="form-control input-md" required="">
+                </div>
+         </div>
+      </div>
+      
+      <div class="form-group">
+          <div class="row">
+                <div class="col-md-6 col-lg-6 col-sm-6">
+                    <input id="paddress" name="paddress" type="text" placeholder="First Name" class="form-control input-md"
+                               required="">
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6">
+                  <input id="taddress" name="taddress" type="text" placeholder="Last Name" class="form-control input-md"
+                               required="">
+               </div>
+          </div>
+          <div class="row">
+                <div class="col-md-6 col-lg-6 col-sm-6">
+                    <input id="phone" name="phone" type="number" placeholder="Phone number"
+                               class="form-control input-md" required="">
+                </div>
+                 <div class="col-md-6 col-lg-6 col-sm-6">
+                     <input id="school" name="school" type="text" placeholder="Your Title" class="form-control input-md"
+                                   required="">
+                </div>
+          </div>
+          <div class="row">
+                <div class="col-md-12 col-lg-12 col-sm-12">
+                    <input id="memail" name="memail" type="email" placeholder="Email"
+                               class="form-control input-md" required="">
+                </div>
+          </div>
+      </div>
+      
+      <div class="row">
+        <div class="form-group">
+            <div class="col-md-3 col-lg-3 col-sm-3">
+                <select id="selectbasic" name="selectbasic" class="form-control">
+                    <option value="0">Number of Locations</option>
+                    <option value="1">1</option>
+                    <option value="2">2-5</option>
+                    <option value="6">6-10</option>
+                    <option value="11">11-25</option>
+                    <option value="25">25+</option>
+                </select>
+            </div>
+            <div class="col-md-3 col-lg-3 col-sm-3">
+                <select id="selectbasic" name="selectbasic" class="form-control">
+                    <option value="0">Type of cuisine</option>
+                    <option value="African: Ethiopian">African: Ethiopian</option>
+                    <option value="Africa: Other">Africa: Other</option>
+                    <option value="Alcohol">Alcohol</option>
+                    <option value="American">American</option>
+                    <option value="Asian Fusion">Asian Fusion</option>
+                    <option value="Asian: Other">Asian: Other</option>
+                    <option value="Bakery">Bakery</option>
+                    <option value="Chinese: Cantonese">Chinese: Cantonese</option>
+                    <option value="Chinese: Hot Pot">Chinese: Hot Pot</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="col-md-3 col-lg-3 col-sm-3">
+                    <select id="selectbasic" name="selectbasic" class="form-control">
+                            <option value="0">Number of Locations</option>
+                            <option value="1">1-10</option>
+                            <option value="2">11-25</option>
+                            <option value="6">26-50</option>
+                            <option value="11">51-100</option>
+                            <option value="25">100-500</option>
+                            <option value="25">500+</option>
+                        </select>
+            </div>
+            <div class="col-md-3 col-lg-3 col-sm-3">
+                    <select id="selectbasic" name="selectbasic" class="form-control">
+                            <option value="0">Do you currently offer delivery?</option>
+                            <option value="1">Yes, we have in-house driver</option>
+                            <option value="2">Yes, we use a delivery service</option>
+                            <option value="3">No, but planning to offer soon</option>
+                            <option value="4">no</option>
+                        </select>
+            </div>
+        </div>
+    </div>
+      <!-- Button (Double) -->
+      <div class="form-group">
+        <div class="row">
+            <div class="col-md-6 col-lg-6 col-sm-6">
+                <button type="submit" class="btn btn-success" style="background-color: #283747" >Register Restaurant</button>
+            </div>
+            <div class="col-md-6 col-lg-6 col-sm-6">
+                <input id="cancel" type="reset" value="Reset" style="background-color: #922B21" name="cancel" class="btn btn-danger">
+            </div>
+        </div>
+       <div class="row">
+           <div class="col-lg-6 col-sm-6 col-md-6">
+                <a routerLink="/rest-login.html" class="btn btn-link">(Restaurant Only) Register</a>
+                <p style="font-style:italic">Please we have security issues now, don't register if you're not a Restaurant owner</p>
+           </div>
+       </div>
+      </div>
+  </form>
+</div>
+
+

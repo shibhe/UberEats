@@ -1,0 +1,36 @@
+h1.nice {
+    font-family: 'Lobster', cursive;
+}
+body {
+  	background-color: #ffffff;
+  	font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #555;
+
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+}
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+.btn{
+    width: 100%;
+    margin-top: 5px;
+    border-radius: 0px;
+}
+
+input, select{
+    border-radius: 0px;
+    margin: 0px;
+}
+
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    display: none;
+    -webkit-appearance: none;
+    margin: 0;
+}

@@ -30,12 +30,11 @@ export class RegisterCustomerComponent implements OnInit {
              data => {
                  this.alertService.success('Registration successful', true);
                  this.router.navigate(['/login.html']);
-                 console.log(JSON.stringify(data));
+                 this.customer = new Customer();
              },
              error => {
                  this.alertService.error(error);
                  this.loading = false;
-                 console.log(JSON.stringify(error));
              });
   }
 }

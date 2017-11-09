@@ -22,7 +22,7 @@ export class CustomerComponent implements OnInit {
   public  id;
   public  email;
   public  status;
-  public isLogged: boolean;
+  public isLogged: string;
 
   constructor(private itemService: ItemService,
      private registerCustomerService:RegisterCustomerService,
@@ -33,6 +33,10 @@ export class CustomerComponent implements OnInit {
   }
   ngOnInit(): void {
      this.getStoreItems();
+     this.firstName = localStorage.getItem("firstName");
+     this.lastName = localStorage.getItem("lastName");
+     this.isLogged = localStorage.getItem("isLogged");
+     
   }
 
   addItemInCart(id: number): void {

@@ -8,3 +8,4 @@ export const ITEMS: OnlineCart[] = [
     { id: 5, itemName: 'Product 5', itemPrice: 11.50, description: 'Product 5 description', shopName: 'Benny and Betty' },
     { id: 6, itemName: 'Product 6', itemPrice: 35.70, description: 'Product 6 description', shopName: 'Reverside Tuck Shop' }
 ];
+

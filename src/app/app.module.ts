@@ -37,6 +37,8 @@ import { AlertService } from './services/Alert.service';
 import { AuthenticationService } from './services/AuthenticateService';
 import { RegisterDriverComponent } from './Forms/register-driver/register-driver.component';
 import { AuthGuard } from './Auth/auth.guard';
+import { RegisterRestaurantComponent } from './Forms/Restaurant/register-restaurant/register-restaurant.component';
+import { LoginRestComponent } from './Forms/Restaurant/login-rest/login-rest.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,8 @@ import { AuthGuard } from './Auth/auth.guard';
     AddItemsComponent,
     ViewOrdersComponent,
     RegisterDriverComponent,
+    RegisterRestaurantComponent,
+    LoginRestComponent,
   ],
   imports: [
     BrowserModule,
@@ -94,6 +98,14 @@ import { AuthGuard } from './Auth/auth.guard';
      {
        path: 'driver.html',
        component: RegisterDriverComponent
+     },
+     {
+       path: 'Restaurant.html',
+       component: RegisterRestaurantComponent
+     },
+     {
+       path: 'rest-login.html',
+       component: LoginRestComponent
      }
     ]),
   HttpModule ],

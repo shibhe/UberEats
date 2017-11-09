@@ -12,25 +12,27 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   searchResults: String = '';
-  isLogged: boolean = true;
-  customer: Customer;
-  firstName: string;
-  public  lastName;
+  public isLogged: boolean;
+  // customer: Customer;
+  public firstName: string;
+  public lastName: string;
  
   constructor(private registerCustomerService:RegisterCustomerService,
      private router: Router, 
-     private route: ActivatedRoute) { }
+     private route: ActivatedRoute) {
+    this.isLogged = this.registerCustomerService.getIsLoggedIn();
+    }
  
   ngOnInit() {
-     this.firstName = "Joseph";
-     this.lastName = "Sibiyaa";
-    this.isLogged = this.registerCustomerService.getIsLoggedIn();
-    console.log(this.firstName);
+    this.firstName = sessionStorage.getItem("firstName");
+    this.lastName = sessionStorage.getItem("lastName");
   }
 
   logout(){
      this.registerCustomerService.logout();
      this.router.navigate(['/login.html']);
      this.isLogged = false;
+     this.firstName = "";
+     this.lastName = "";
   }
 }
