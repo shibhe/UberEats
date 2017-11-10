@@ -3,25 +3,29 @@
       <h1 class="nice">Partner with us</h1>
   </div>
   <form class="form-horizontal" method="post"
-        action="#">
+        action="#" autocomplete="on">
       <!-- Text input-->
       <div class="form-group">
          <div class="row">
             <div class="col-md-12 col-lg-12 col-sm-12">
-                 <input id="name" name="name" type="text" placeholder="Sandton, South Africa" class="form-control input-md" required="">
+                 <input  name="city" type="text" [(ngModel)]="restaurant.city" placeholder="Sandton, South Africa" class="form-control input-md" 
+                 autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #city [formControl]="searchControl">
             </div>
          </div>
       </div>
-    
+      <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+            <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+     </agm-map>
       <!-- Email input-->
+     
       <div class="form-group">
          <div class="row">
                 <div class="col-md-6 col-lg-6 col-sm-6">
-                    <input id="email" name="email" type="email" placeholder="Restaurant Name"
+                    <input id="email" name="RestName" [(ngModel)]="restaurant.RestName" type="text" placeholder="Restaurant Name"
                         class="form-control input-md">
                 </div>
                 <div class="col-md-6 col-lg-6 col-sm-6">
-                    <input id="weight" name="weight" type="number" placeholder="Zip or Postal Code (Primary Location)"
+                    <input name="zipCode" type="number" [(ngModel)]="restaurant.zipCode" placeholder="Zip or Postal Code (Primary Location)"
                         class="form-control input-md" required="">
                 </div>
          </div>
@@ -30,36 +34,40 @@
       <div class="form-group">
           <div class="row">
                 <div class="col-md-6 col-lg-6 col-sm-6">
-                    <input id="paddress" name="paddress" type="text" placeholder="First Name" class="form-control input-md"
+                    <input name="firstName" [(ngModel)]="restaurant.firstName" type="text" placeholder="First Name" class="form-control input-md"
                                required="">
                 </div>
                 <div class="col-md-6 col-lg-6 col-sm-6">
-                  <input id="taddress" name="taddress" type="text" placeholder="Last Name" class="form-control input-md"
+                  <input name="lastName" [(ngModel)]="restaurant.lastName" type="text" placeholder="Last Name" class="form-control input-md"
                                required="">
                </div>
           </div>
           <div class="row">
                 <div class="col-md-6 col-lg-6 col-sm-6">
-                    <input id="phone" name="phone" type="number" placeholder="Phone number"
+                    <input name="phoneNumber" type="text" [(ngModel)]="restaurant.phoneNumber" placeholder="Phone number"
                                class="form-control input-md" required="">
                 </div>
                  <div class="col-md-6 col-lg-6 col-sm-6">
-                     <input id="school" name="school" type="text" placeholder="Your Title" class="form-control input-md"
+                     <input name="title" type="text" [(ngModel)]="restaurant.title" placeholder="Your Title" class="form-control input-md"
                                    required="">
                 </div>
           </div>
           <div class="row">
-                <div class="col-md-12 col-lg-12 col-sm-12">
-                    <input id="memail" name="memail" type="email" placeholder="Email"
-                               class="form-control input-md" required="">
+                <div class="col-md-6 col-lg-6 col-sm-6">
+                    <input name="password" [(ngModel)]="restaurant.password" type="password" placeholder="Password"
+                    autocomplete="off" class="form-control input-md" required="">
                 </div>
+                <div class="col-md-6 col-lg-6 col-sm-6">
+                        <input name="email" [(ngModel)]="restaurant.email" type="email" placeholder="Email"
+                        autocomplete="off" class="form-control input-md" required="">
+                    </div>
           </div>
       </div>
       
       <div class="row">
         <div class="form-group">
             <div class="col-md-3 col-lg-3 col-sm-3">
-                <select id="selectbasic" name="selectbasic" class="form-control">
+                <select name="numOfLocation" [(ngModel)]="restaurant.numOfLocation" class="form-control">
                     <option value="0">Number of Locations</option>
                     <option value="1">1</option>
                     <option value="2">2-5</option>
@@ -69,7 +77,7 @@
                 </select>
             </div>
             <div class="col-md-3 col-lg-3 col-sm-3">
-                <select id="selectbasic" name="selectbasic" class="form-control">
+                <select id="selectbasic" name="typeOfCuisine" [(ngModel)]="restaurant.typeOfCuisine" class="form-control">
                     <option value="0">Type of cuisine</option>
                     <option value="African: Ethiopian">African: Ethiopian</option>
                     <option value="Africa: Other">Africa: Other</option>
@@ -84,8 +92,8 @@
                 </select>
             </div>
             <div class="col-md-3 col-lg-3 col-sm-3">
-                    <select id="selectbasic" name="selectbasic" class="form-control">
-                            <option value="0">Number of Locations</option>
+                    <select id="selectbasic" [(ngModel)]="restaurant.estweeklyOrder" name="estweeklyOrder" class="form-control">
+                            <option value="0">Estimated weekly go-to orders</option>
                             <option value="1">1-10</option>
                             <option value="2">11-25</option>
                             <option value="6">26-50</option>
@@ -95,7 +103,7 @@
                         </select>
             </div>
             <div class="col-md-3 col-lg-3 col-sm-3">
-                    <select id="selectbasic" name="selectbasic" class="form-control">
+                    <select [(ngModel)]="restaurant.offerDelivery" name="offerDelivery" class="form-control">
                             <option value="0">Do you currently offer delivery?</option>
                             <option value="1">Yes, we have in-house driver</option>
                             <option value="2">Yes, we use a delivery service</option>
@@ -109,7 +117,7 @@
       <div class="form-group">
         <div class="row">
             <div class="col-md-6 col-lg-6 col-sm-6">
-                <button type="submit" class="btn btn-success" style="background-color: #283747" >Register Restaurant</button>
+                <button type="submit" class="btn btn-success" [disabled]="loading" (click)="OnSubmit()" style="background-color: #283747" >Register Restaurant</button>
             </div>
             <div class="col-md-6 col-lg-6 col-sm-6">
                 <input id="cancel" type="reset" value="Reset" style="background-color: #922B21" name="cancel" class="btn btn-danger">
@@ -119,6 +127,7 @@
            <div class="col-lg-6 col-sm-6 col-md-6">
                 <a routerLink="/rest-login.html" class="btn btn-link">(Restaurant Only) Sign In</a>
                 <p style="font-style:italic">Please we have security issues now, don't register if you're not a Restaurant owner</p>
+                <p>After you submit this form, a member of the Uber team will get in touch with you.</p>
            </div>
        </div>
       </div>

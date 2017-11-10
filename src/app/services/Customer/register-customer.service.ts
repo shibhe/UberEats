@@ -3,7 +3,6 @@ import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map'
 import { Customer } from '../../../Model/Customer.component';
-import { DashboardService } from '../dashboard-service';
 
 
 @Injectable()
@@ -28,7 +27,21 @@ export class RegisterCustomerService {
 
 login(email: string, password: string) {
     return this.http.post(`${this.BASE_URL}/login.php`, {email: email, password: password}, { headers: this.headers })
-    .map(res => res.json());
+    .map(res => res.json())
+    .subscribe((custData) =>
+    {
+      if (custData.success === "true"){
+        sessionStorage.setItem("firstName", custData.firstName);
+        sessionStorage.setItem("lastName", custData.lastName);
+        sessionStorage.setItem("id", custData.id);
+        sessionStorage.setItem("email", custData.email);
+        alert(custData.message + " " + custData.firstName);
+        sessionStorage.setItem("success", custData.success);
+      }
+      else if (custData.status == 0){
+        alert("Please check your internet connection or maybe the server is donw");
+      }
+    });
   }
 
   logout() {

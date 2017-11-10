@@ -3,7 +3,6 @@ import { RegisterCustomerService } from '../../services/Customer/register-custom
 import { Customer } from '../../../Model/Customer.component';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { DashboardService } from '../../services/dashboard-service';
 import { AlertService } from '../../services/Alert.service';
 
 @Component({
@@ -17,7 +16,7 @@ export class RegisterCustomerComponent implements OnInit {
 
   constructor(private userService: RegisterCustomerService,
     private router: Router,
-    private alertService: AlertService,) { }
+    private alertService: AlertService) { }
 
   ngOnInit() {
 

@@ -32,16 +32,18 @@
                     <form method="post ">
                         <div class="input-group " style="height: 50px">
                             <span class="input-group-addon " style="background-color: white "><i  class="glyphicon glyphicon-map-marker "></i></span>
-                            <input style="height: 50px;border-left: none; " type="search " class="form-control" placeholder="Enter your delivery address" name="searchResults" [(ngModel)]="searchResults">
+                            <input style="height: 50px;border-left: none;" placeholder="Find restaurants that deliver near you" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
                             <span class="input-group-btn ">
                               <button class="btn btn-success" style="height: 50px; margin-left: 9px" type="submit">
                                  <i class="fa fa-spinner fa-spin" style="font-size: 25px"></i>
                               </button>
                             </span>
                         </div>
+                        <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+                                <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+                        </agm-map>
                     </form>
                 </div>
-                <p>{{ searchResults }}</p>
             </div>
         </div>
     </div>

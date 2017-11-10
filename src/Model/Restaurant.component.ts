@@ -14,8 +14,8 @@ export class Restaurant {
         public estweeklyOrder: string = '',
         public offerDelivery: boolean  = false,
         public zipCode: string = '',
-        public userRole: string = '',
-        public message: string = '',
-        public isLogged: boolean = false
+        public userRole: string = 'Restaurant',
+       // public message: string = '',
+       // public isLogged: boolean = false
     ) { }
 }
