@@ -41,6 +41,7 @@ import { RestaurantService } from './services/Restaurant/restaurant.service';
 
 //Google Maps
 import { AgmCoreModule } from '@agm/core';
+import { ItemsService } from './services/Restaurant/Items/items.service';
 
 
 @NgModule({
@@ -127,7 +128,8 @@ import { AgmCoreModule } from '@agm/core';
     AlertService,
     AuthenticationService,
     AuthGuard,
-    RestaurantService
+    RestaurantService,
+    ItemsService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { OnlineCart } from '../../Model/OnlineCart.component';
 import { ITEMS } from './mock-items';
+import { Http, Headers, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map'
 
 @Injectable()
 export class ItemService {
@@ -8,9 +11,21 @@ export class ItemService {
   item;
   itemIndex;
   totalAmt;
+  private headers: Headers = new Headers({ 'Content-Type': 'application/json' });
+  private BASE_URL: String = 'http://localhost/ubereats';
+  
+  constructor(private http: Http){}
 
-  getItems(): OnlineCart[] {
-    return ITEMS;
+  getItems(): Observable<OnlineCart[]> {
+    return this.http.get(`${this.BASE_URL}/getItems.php`)
+      .map((data: Response) => {
+        console.log(data)
+        return <OnlineCart[]>data.json();
+      })
+  }
+
+  private handleError(error: Response) {
+    return Observable.throw(error.statusText);
   }
 
   getSelectedItems(): OnlineCart[] {

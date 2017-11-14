@@ -28,15 +28,15 @@ export class CustomerComponent implements OnInit {
      private registerCustomerService:RegisterCustomerService,
      private route: ActivatedRoute) { }
 
-  getStoreItems(): void {
-     this.cartItems = this.itemService.getItems();
-  }
+  
   ngOnInit(): void {
-     this.getStoreItems();
-     this.firstName = localStorage.getItem("firstName");
-     this.lastName = localStorage.getItem("lastName");
-     this.isLogged = localStorage.getItem("isLogged");
-     
+    this.itemService.getItems()
+    .subscribe(data => {
+      this.cartItems = data;
+      console.log(this.cartItems);
+    }
+      
+    )
   }
 
   addItemInCart(id: number): void {

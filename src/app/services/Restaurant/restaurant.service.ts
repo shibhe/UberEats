@@ -9,7 +9,7 @@ import { Restaurant } from '../../../Model/Restaurant.component';
 export class RestaurantService {
   private headers: Headers = new Headers({ 'Content-Type': 'application/json' });
   private BASE_URL: String = 'http://localhost/ubereats';
-  public isLoggedIn;
+  private isLoggedIn;
 
   constructor(private http: Http) { }
 
@@ -21,21 +21,22 @@ export class RestaurantService {
 
   login(email: string, password: string) {
     return this.http.post(`${this.BASE_URL}/restLogin.php`, {email: email, password: password}, { headers: this.headers })
-    .map(res => console.log(res.json()))
+    .map(res => res.json())
     .subscribe((custData) =>
     {
       console.log(custData);
-      ///if (custData.success === "true"){
-       // sessionStorage.setItem("firstName", custData.firstName);
-       // sessionStorage.setItem("lastName", custData.lastName);
-      //  sessionStorage.setItem("id", custData.id);
-     //   sessionStorage.setItem("email", custData.email);
-     //   alert(custData.message + " " + custData.firstName);
-      //  sessionStorage.setItem("success", custData.success);
-     // }
-     // else if (custData.status == 0){
-     //   alert("Please check your internet connection or maybe the server is donw");
-      //}
+      if (custData.success === "true"){
+        sessionStorage.setItem("firstName", custData.firstName);
+        sessionStorage.setItem("lastName", custData.lastName);
+        sessionStorage.setItem("id", custData.id);
+        sessionStorage.setItem("email", custData.email);
+        alert(custData.message + " " + custData.firstName);
+        sessionStorage.setItem("success", custData.success);
+        this.setIsLoggedIn();
+      }
+     else if (custData == 0){
+        alert("Please check your internet connection or maybe the server is donw");
+      }
     });
     
   }

@@ -32,10 +32,9 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     let email = this.customer.email;
     let password = this.customer.password;
-    this.results = this.authenticationService.login(email, password)
+    this.authenticationService.login(email, password)
     this.alertService.success('Login successful', true);
     this.router.navigate(['/login/username/userRole=1']);
     this.authenticationService.setIsLoggedIn();
-    console.log(this.results);
   }
 }

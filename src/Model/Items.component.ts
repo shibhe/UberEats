@@ -3,8 +3,9 @@ export class Items {
         public id: number = 0,
         public itemName: string = '',
         public itemPrice: number = 0,
-        public itemImage: string = '',
+        public itemImage: string|any = '',
         public description: string = '',
-         public userID: string = '',
+        public itemType: string = '',
+        public userID: string = sessionStorage.getItem("id")
     ) { }
 }
