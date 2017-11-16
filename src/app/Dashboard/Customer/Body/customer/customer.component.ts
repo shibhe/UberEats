@@ -22,6 +22,7 @@ export class CustomerComponent implements OnInit {
      private registerCustomerService:RegisterCustomerService,
      private route: ActivatedRoute) { }
 
+<<<<<<< HEAD
   
      public addProductToCart(product: OnlineCart): void {
       this.shoppingCartService.addItem(product, 1);
@@ -45,6 +46,35 @@ export class CustomerComponent implements OnInit {
   
     public ngOnInit(): void {
       this.products = this.productsService.getAllProducts();
+=======
+  getStoreItems(): void {
+     this.cartItems = this.itemService.getItems();
+  }
+  ngOnInit(): void {
+     this.getStoreItems();
+     this.firstName = localStorage.getItem("firstName");
+     this.lastName = localStorage.getItem("lastName");
+     this.isLogged = localStorage.getItem("isLogged");
+     
+  }
+
+  addItemInCart(id: number): void {
+     this.itemService.addItem(id);
+     this.numCartItems = this.numCartItems + 1;
+     this.isEnabled = true;
+     this.subTotalAmt = this.subTotalAmt + this.itemService.getSelectedItemAmount(id);
+     this.seletedItems = this.itemService.getSelectedItems();
+  }
+
+  // tslint:disable-next-line:one-line
+  removeItemInCart(id: number){
+    this.itemService.removeItem(id);
+    this.numCartItems = this.numCartItems - 1;
+    
+    // tslint:disable-next-line:one-line
+    if (this.numCartItems === 0){
+      this.isEnabled = false;
+>>>>>>> parent of a520a2f... sdfdf
     }
 
 }

@@ -22,7 +22,7 @@
         </div>
     </div>
 
-    <div class="container" *ngIf="!isLogged">
+    <div class="container">
         <div class="row">
             <div class="col-md-6 col-xs-6 col-lg-6 col-sm-6" style="padding-top: 50px ">
                 <div class="title ">
@@ -34,7 +34,7 @@
                             <span class="input-group-addon " style="background-color: white "><i  class="glyphicon glyphicon-map-marker "></i></span>
                             <input style="height: 50px;border-left: none;" placeholder="Find restaurants that deliver near you" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
                             <span class="input-group-btn ">
-                              <button class="btn btn-success"  style="height: 50px; margin-left: 9px" type="submit">
+                              <button class="btn btn-success" style="height: 50px; margin-left: 9px" type="submit">
                                  <i class="fa fa-spinner fa-spin" style="font-size: 25px"></i>
                               </button>
                             </span>

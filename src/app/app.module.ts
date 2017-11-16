@@ -40,6 +40,7 @@ import { RestaurantService } from './services/Restaurant/restaurant.service';
 
 //Google Maps
 import { AgmCoreModule } from '@agm/core';
+<<<<<<< HEAD
 import { OrderConfirmationComponent } from './Dashboard/Customer/order-confirmation/order-confirmation.component';
 import { CheckoutComponent } from './Dashboard/Customer/checkout/checkout.component';
 import { ShoppingCartService } from './services/shopping-cart.service';
@@ -47,6 +48,9 @@ import { ProductsService } from './services/products.service';
 import { LocalStorageServie, StorageService } from './services/Storage.service';
 import { CachcingServiceBase } from './services/catching.service';
 import { ShoppingCartComponent } from './Dashboard/Customer/shopping-cart/shopping-cart.component';
+=======
+
+>>>>>>> parent of a520a2f... sdfdf
 
 @NgModule({
   declarations: [
@@ -136,11 +140,15 @@ import { ShoppingCartComponent } from './Dashboard/Customer/shopping-cart/shoppi
     AlertService,
     AuthenticationService,
     AuthGuard,
+<<<<<<< HEAD
     RestaurantService,
     ShoppingCartService,
     ProductsService,
     { provide: StorageService, useClass: LocalStorageServie }
     
+=======
+    RestaurantService
+>>>>>>> parent of a520a2f... sdfdf
   ],
   bootstrap: [AppComponent]
 })

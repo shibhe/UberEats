@@ -33,8 +33,8 @@ export class HeaderComponent implements OnInit {
      private mapsAPILoader: MapsAPILoader,
      private ngZone: NgZone,
      private restaurantService:RestaurantService) {
-     this.isLogged = this.registerCustomerService.getIsLoggedIn();
-     console.log("status:", this.isLogged);
+    this.isLogged = this.registerCustomerService.getIsLoggedIn();
+   // this.isLogged = this.restaurantService.getIsLoggedIn();
     }
  
   ngOnInit() {
@@ -78,10 +78,10 @@ export class HeaderComponent implements OnInit {
 
   logout(){
      this.registerCustomerService.logout();
+     this.router.navigate(['/login.html']);
      this.isLogged = false;
      this.firstName = "";
      this.lastName = "";
-     this.router.navigate(['/login.html']);
   }
 
   private setCurrentPosition() {

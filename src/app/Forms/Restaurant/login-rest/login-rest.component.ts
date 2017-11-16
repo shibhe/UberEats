@@ -34,9 +34,8 @@ export class LoginRestComponent implements OnInit {
     let email = this.restaurant.email;
     let password = this.restaurant.password;
     this.restaurantService.login(email, password);
-    this.restaurantService.setIsLoggedIn();
     this.alertService.success('Login successful', true);
     this.router.navigate(['/login.html/username/userRole=3']);
-   
+    this.restaurantService.setIsLoggedIn();
   }
 }
