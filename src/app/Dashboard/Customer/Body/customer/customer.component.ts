@@ -23,6 +23,7 @@ export class CustomerComponent implements OnInit {
      private route: ActivatedRoute) { }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   
      public addProductToCart(product: OnlineCart): void {
       this.shoppingCartService.addItem(product, 1);
@@ -47,6 +48,8 @@ export class CustomerComponent implements OnInit {
     public ngOnInit(): void {
       this.products = this.productsService.getAllProducts();
 =======
+=======
+>>>>>>> parent of a520a2f... sdfdf
   getStoreItems(): void {
      this.cartItems = this.itemService.getItems();
   }

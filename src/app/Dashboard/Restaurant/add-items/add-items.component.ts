@@ -1,8 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Items } from '../../../../Model/Items.component';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Router } from '@angular/router';
 import { ProductsService } from '../../../services/products.service';
+=======
+>>>>>>> parent of a520a2f... sdfdf
 =======
 >>>>>>> parent of a520a2f... sdfdf
 
@@ -12,6 +15,7 @@ import { ProductsService } from '../../../services/products.service';
   styleUrls: ['./add-items.component.css']
 })
 export class AddItemsComponent implements OnInit {
+<<<<<<< HEAD
 <<<<<<< HEAD
   items = new  Items();
   path = '';  
@@ -25,10 +29,16 @@ export class AddItemsComponent implements OnInit {
  items = new  Items();
   constructor() { }
 >>>>>>> parent of a520a2f... sdfdf
+=======
+  @ViewChild('fileInput') fileInput;
+ items = new  Items();
+  constructor() { }
+>>>>>>> parent of a520a2f... sdfdf
 
   ngOnInit() {
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   handleUpload(e):void{
     this.items.itemImage = e.target.value;
@@ -48,6 +58,9 @@ export class AddItemsComponent implements OnInit {
     });
 =======
   OnSubmit(){
+=======
+  OnSubmit(){
+>>>>>>> parent of a520a2f... sdfdf
     let fileBrowser = this.fileInput.nativeElement;
     if (fileBrowser.files && fileBrowser.files[0]) {
       const formData = new FormData();
@@ -56,6 +69,9 @@ export class AddItemsComponent implements OnInit {
         // do stuff w/my uploaded file
      // });
     }
+<<<<<<< HEAD
+>>>>>>> parent of a520a2f... sdfdf
+=======
 >>>>>>> parent of a520a2f... sdfdf
   }
 }

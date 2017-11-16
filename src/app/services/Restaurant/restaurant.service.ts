@@ -9,8 +9,13 @@ import { Restaurant } from '../../../Model/Restaurant.component';
 export class RestaurantService {
   private headers: Headers = new Headers({ 'Content-Type': 'application/json' });
 <<<<<<< HEAD
+<<<<<<< HEAD
   private BASE_URL: String = 'http://localhost:61297/api';
   private isLoggedIn;
+=======
+  private BASE_URL: String = 'http://localhost/ubereats';
+  public isLoggedIn;
+>>>>>>> parent of a520a2f... sdfdf
 =======
   private BASE_URL: String = 'http://localhost/ubereats';
   public isLoggedIn;
