@@ -1,16 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { Items } from '../../../../Model/Items.component';
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { Router } from '@angular/router';
-import { ProductsService } from '../../../services/products.service';
-=======
->>>>>>> parent of a520a2f... sdfdf
-=======
->>>>>>> parent of a520a2f... sdfdf
-=======
->>>>>>> parent of a520a2f... sdfdf
+import { ItemsService } from '../../../services/Restaurant/Items/items.service';
 
 @Component({
   selector: 'app-add-items',
@@ -18,44 +9,27 @@ import { ProductsService } from '../../../services/products.service';
   styleUrls: ['./add-items.component.css']
 })
 export class AddItemsComponent implements OnInit {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
   items = new  Items();
   path = '';  
   public file_srcs: string[] = [];  
   public debug_size_before: string[] = [];  
   public debug_size_after: string[] = [];  
 
-  constructor(private changeDetectorRef: ChangeDetectorRef,  public _route: Router, private itemsService: ProductsService) { }
-=======
-  @ViewChild('fileInput') fileInput;
- items = new  Items();
-  constructor() { }
->>>>>>> parent of a520a2f... sdfdf
-=======
-  @ViewChild('fileInput') fileInput;
- items = new  Items();
-  constructor() { }
->>>>>>> parent of a520a2f... sdfdf
-=======
-  @ViewChild('fileInput') fileInput;
- items = new  Items();
-  constructor() { }
->>>>>>> parent of a520a2f... sdfdf
+
+  constructor(private changeDetectorRef: ChangeDetectorRef,  public _route: Router, private itemsService: ItemsService) { }
+
 
   ngOnInit() {
   }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
   handleUpload(e):void{
     this.items.itemImage = e.target.value;
-   } 
 
+ }
+ 
   OnSubmit(){
-   this.itemsService.addNewProduct(this.items)
+   this.itemsService.addNewItems(this.items)
    .subscribe(
     data => {
        // this.alertService.success('Registration successful', true);
@@ -66,29 +40,6 @@ export class AddItemsComponent implements OnInit {
     error => {
       console.log(JSON.stringify(error))
     });
-=======
-  OnSubmit(){
-=======
-  OnSubmit(){
->>>>>>> parent of a520a2f... sdfdf
-=======
-  OnSubmit(){
->>>>>>> parent of a520a2f... sdfdf
-    let fileBrowser = this.fileInput.nativeElement;
-    if (fileBrowser.files && fileBrowser.files[0]) {
-      const formData = new FormData();
-      formData.append("image", fileBrowser.files[0]);
-      // this.projectService.upload(formData, this.project.id).subscribe(res => {
-        // do stuff w/my uploaded file
-     // });
-    }
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of a520a2f... sdfdf
-=======
->>>>>>> parent of a520a2f... sdfdf
-=======
->>>>>>> parent of a520a2f... sdfdf
   }
 }
 
