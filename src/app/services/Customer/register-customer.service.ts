@@ -25,8 +25,8 @@ export class RegisterCustomerService {
     .map((data) => console.log(JSON.stringify(data)));
   }
 
-login(email: string, password: string) {
-    return this.http.post(`${this.BASE_URL}/Customer?email=${email}&password=${password}`, {enail: email, password: password}, { headers: this.headers })
+login(customer: Customer) {
+    return this.http.post(`${this.BASE_URL}/Customer/`, customer, { headers: this.headers })
     .map(res => res.json())
     .subscribe((custData) =>
     {
