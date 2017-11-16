@@ -8,9 +8,12 @@ export class OnlineCart {
         public description: string = '',
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         public quantity: number = 0,
         public userID: string = sessionStorage.getItem("id")
 =======
+=======
+>>>>>>> parent of a520a2f... sdfdf
 =======
 >>>>>>> parent of a520a2f... sdfdf
         // public userID: string = '',
