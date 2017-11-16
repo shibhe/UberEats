@@ -32,7 +32,6 @@ import { LoginComponent } from './Forms/login/login.component';
 
 // Services
 import { RegisterCustomerService } from './services/Customer/register-customer.service';
-import { ItemService } from './services/item.service';
 import { AlertService } from './services/Alert.service';
 import { AuthenticationService } from './services/AuthenticateService';
 import { RegisterDriverComponent } from './Forms/register-driver/register-driver.component';
@@ -41,8 +40,13 @@ import { RestaurantService } from './services/Restaurant/restaurant.service';
 
 //Google Maps
 import { AgmCoreModule } from '@agm/core';
-import { ItemsService } from './services/Restaurant/Items/items.service';
-
+import { OrderConfirmationComponent } from './Dashboard/Customer/order-confirmation/order-confirmation.component';
+import { CheckoutComponent } from './Dashboard/Customer/checkout/checkout.component';
+import { ShoppingCartService } from './services/shopping-cart.service';
+import { ProductsService } from './services/products.service';
+import { LocalStorageServie, StorageService } from './services/Storage.service';
+import { CachcingServiceBase } from './services/catching.service';
+import { ShoppingCartComponent } from './Dashboard/Customer/shopping-cart/shopping-cart.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +68,9 @@ import { ItemsService } from './services/Restaurant/Items/items.service';
     RegisterDriverComponent,
     RegisterRestaurantComponent,
     LoginRestComponent,
+    OrderConfirmationComponent,
+    CheckoutComponent,
+    ShoppingCartComponent,
   ],
   imports: [
     AgmCoreModule.forRoot({
@@ -98,11 +105,13 @@ import { ItemsService } from './services/Restaurant/Items/items.service';
         canActivate: [AuthGuard] 
      },
      {
-         path: 'login.html/username/userRole=2', component: DriverComponent
+         path: 'login.html/username/userRole=2', component: DriverComponent,
+         canActivate: [AuthGuard] 
       },
       {
         path: 'login.html/username/userRole=3',
          component: RestaurantComponent,
+         canActivate: [AuthGuard] 
      },
      {
        path: 'driver.html',
@@ -124,12 +133,14 @@ import { ItemsService } from './services/Restaurant/Items/items.service';
   HttpModule ],
   providers: [
     RegisterCustomerService,
-    ItemService,
     AlertService,
     AuthenticationService,
     AuthGuard,
     RestaurantService,
-    ItemsService
+    ShoppingCartService,
+    ProductsService,
+    { provide: StorageService, useClass: LocalStorageServie }
+    
   ],
   bootstrap: [AppComponent]
 })

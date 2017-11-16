@@ -8,14 +8,14 @@ import { Restaurant } from '../../../Model/Restaurant.component';
 @Injectable()
 export class RestaurantService {
   private headers: Headers = new Headers({ 'Content-Type': 'application/json' });
-  private BASE_URL: String = 'http://localhost/ubereats';
+  private BASE_URL: String = 'http://localhost:61297/api';
   private isLoggedIn;
 
   constructor(private http: Http) { }
 
 
   postNewRestaurant(restaurant: Restaurant){
-    return this.http.post(`${this.BASE_URL}/addRestaurant.php`, restaurant, { headers: this.headers})
+    return this.http.post(`${this.BASE_URL}/Restaurants`, restaurant, { headers: this.headers})
     .map((data) => console.log(JSON.stringify(data)));
   }
 

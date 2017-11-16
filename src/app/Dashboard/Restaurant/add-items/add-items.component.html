@@ -1,54 +1,39 @@
 <div class="container">
-<h1 class="well">Add item to your collection</h1>
-
-<div class="col-lg-12 well">
-    <div class="row">
-        <form>
-            <div class="col-sm-12">
-                <h3>Add Item<br>
-                    <p>By adding the item, you will be able to use it for both Uber and UberEATS.</p>
-                </h3>
-                <div class="row">
-                    <div class="col-sm-6 form-group">
-                        <input [(ngModel)]="items.itemName" name="itemName" type="text" placeholder="Item Name Here..." class="form-control">
-                        <!--<small [hidden]="firstName.valid || (firstName.pristine && !f.submitted) || firstName.errors.minlength" class="text-danger">
-                            First Name is required (minimum 2 characters).
-                         </small>-->
+        <h1 class="well">Add Product to your collection</h1>
+        
+        <div class="col-lg-12 well">
+            <div class="row">
+                <form>
+                    <div class="col-md-6 form-line">
+                          <div class="form-group">
+                              <label for="itemName">Product name</label>
+                            <input type="text" [(ngModel)]="items.itemName" name="itemName" class="form-control" id="" placeholder=" Enter Product Name">
+                          </div>
+                          <div class="form-group">
+                            <label for="itemPrice">Product Price</label>
+                            <input type="number" [(ngModel)]="items.itemPrice" name="itemPrice" class="form-control" id="exampleInputEmail" placeholder=" Enter Product Price here">
+                          </div>	
+                          <div class="form-group">
+                                <label for="itemImage">Product Image</label>
+                                <input type="file" class="form-control-file" (change)="handleUpload($event)" id="itemImage" name="itemimage" aria-describedby="fileHelp">
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                            <div class="form-group">
+                                    <label class="radio-inline"><input type="radio" value="breakFast" name="itemType" [(ngModel)]="items.itemType" required>BreakFast</label>
+                                    <label class="radio-inline"><input type="radio" value="lunch" name="itemType" [(ngModel)]="items.itemType" required>Lunch</label>
+                                    <label class="radio-inline"><input type="radio" value="supper" name="itemType" [(ngModel)]="items.itemType" required>Supper</label>
+                            </div>
+                          <div class="form-group">
+                              <label for ="description"> Product Description</label>
+                               <textarea  class="form-control" [(ngModel)]="items.description" name="description" id="description" placeholder="Enter Your Description here"></textarea>
+                          </div>
+                          <div>
+                              <button type="button" (click)="OnSubmit()" class="btn btn-default submit"><i class="fa fa-plus" aria-hidden="true"></i>  Add Product</button>
+                          </div>
                     </div>
-                    <div class="col-sm-6 form-group">
-                        <input [(ngModel)]="items.itemPrice" name="itemPrice" type="number" placeholder="Item price Here..." class="form-control">
-                                               
-                        <!--<small [hidden]="lastName.valid || (lastName.pristine && !f.submitted)" class="text-danger">
-                            Last Name is required (minimum 2 characters).
-                         </small>-->
-                    </div>
-                </div>
-              
-                <div class="row">
-                    <div class="col-sm-6 form-group">
-                      <input type="file" placeholder="Item picture upload Here" placeholder="Upload file..." (change)="handleUpload($event)" />
-                    </div>
-                    <div class="col-sm-6 form-group">
-                        <textarea [(ngModel)]="items.description" name="description" placeholder="Item description Here.." class="form-control" rows="5" id="comment"></textarea>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="checkbox">
-                            <label class="radio-inline"><input type="radio" value="breakFast" name="itemType" [(ngModel)]="items.itemType" required>BreakFast</label>
-                            <label class="radio-inline"><input type="radio" value="lunch" name="itemType" [(ngModel)]="items.itemType" required>Lunch</label>
-                            <label class="radio-inline"><input type="radio" value="supper" name="itemType" [(ngModel)]="items.itemType" required>Supper</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-md btn-success" (click)="OnSubmit()" style="margin-bottom: 5px">Add Item</button>
-                    <input type="reset" value="Reset fields" class="btn btn-md btn-success" style="background-color: #85C1E9">
-                </div>
+                </form>
+                {{ items | json}}
             </div>
-
-            <p>{{ items | json }}</p>
-        </form>
-    </div>
-</div>
-</div>
+        </div>
+        </div>
