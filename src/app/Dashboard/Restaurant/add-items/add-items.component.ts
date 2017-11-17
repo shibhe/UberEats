@@ -8,34 +8,41 @@ import { ItemsService } from '../../../services/Restaurant/Items/items.service';
   templateUrl: './add-items.component.html',
   styleUrls: ['./add-items.component.css']
 })
+
 export class AddItemsComponent implements OnInit {
 
-  items = new  Items();
-  path = '';  
-  public file_srcs: string[] = [];  
-  public debug_size_before: string[] = [];  
-  public debug_size_after: string[] = [];  
-
+  public items = new Items(null, null, null, null);
+  public base64textString: string= ""; 
 
   constructor(private changeDetectorRef: ChangeDetectorRef,  public _route: Router, private itemsService: ItemsService) { }
 
-
   ngOnInit() {
+    
   }
 
-  handleUpload(e):void{
-    this.items.itemImage = e.target.value;
-
- }
+  handleUpload(evt):void{
+      this.items.itemImage = evt.target.files;
+      var files = this.items.itemImage;
+      var file = files[0];
+    
+    if (files && file) {
+        var reader = new FileReader();
+        reader.onload = this._handleReaderLoaded.bind(this);
+        reader.readAsBinaryString(file);
+    }
+  }
+  
+  _handleReaderLoaded(readerEvt) {
+     var binaryString = readerEvt.target.result;
+     this.base64textString= btoa(binaryString);
+     // console.log(btoa(binaryString));
+  }
  
   OnSubmit(){
    this.itemsService.addNewItems(this.items)
    .subscribe(
     data => {
-       // this.alertService.success('Registration successful', true);
-       // this.router.navigate(['/rest-login.html']);
       console.log(JSON.stringify(data))
-        //this.restaurant = new Restaurant();
     },
     error => {
       console.log(JSON.stringify(error))

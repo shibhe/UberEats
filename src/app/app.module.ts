@@ -96,7 +96,8 @@ import { CheckoutComponent } from './Dashboard/checkout/checkout.component';
         component: LoginComponent
       },
       {
-         path: 'home.html', component: MainComponent
+         path: 'home.html', 
+         component: MainComponent
       },
       {
         path: 'login/username/userRole=1', component: CustomerComponent,

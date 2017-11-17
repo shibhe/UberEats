@@ -6,7 +6,7 @@ export class OnlineCart {
         public itemPrice: number = 0,
         // public itemImage: string = '',
         public description: string = '',
-        // public quantity: number = 0,
+       // public quantity: number = 0,
        // public userID: string = sessionStorage.getItem("id")
 
     ) { }

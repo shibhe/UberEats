@@ -3,6 +3,8 @@ import { OnlineCart } from '../../../../../Model/OnlineCart.component';
 import { ItemService } from '../../../../services/item.service';
 import { RegisterCustomerService } from '../../../../services/Customer/register-customer.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CartItems } from '../../../../../Model/CartItems';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-customer',
@@ -11,11 +13,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CustomerComponent implements OnInit {
 
-  public cartItems: OnlineCart[];
+  public cartItems: OnlineCart[] = [];
   public numCartItems = 0;
   public subTotalAmt = 0;
   public isEnabled = false;
-  public seletedItems: OnlineCart[] = [];
+  public seletedItems: CartItems[] = [];
   public itemIndex;
   public firstName;
   public  lastName;
@@ -27,16 +29,18 @@ export class CustomerComponent implements OnInit {
   constructor(private itemService: ItemService,
      private registerCustomerService:RegisterCustomerService,
      private route: ActivatedRoute,
-    private router: Router) { }
+     private router: Router) { }
 
   getStoreItems(): void {
-     this.cartItems = this.itemService.getItems();
+      this.itemService.getItems().then(data => {
+         this.cartItems = data;
+     })
   }
+
   ngOnInit(): void {
      this.getStoreItems();
      this.firstName = localStorage.getItem("firstName");
      this.lastName = localStorage.getItem("lastName");
-     this.isLogged = localStorage.getItem("isLogged");
   }
      
   addItemInCart(id: number): void {

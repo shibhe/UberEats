@@ -36,6 +36,5 @@ export class LoginComponent implements OnInit {
     this.alertService.success('Login successful', true);
     this.router.navigate(['/login/username/userRole=1']);
     this.authenticationService.setIsLoggedIn();
-    console.log(this.results);
   }
 }
