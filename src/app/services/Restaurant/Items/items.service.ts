@@ -10,9 +10,10 @@ export class ItemsService {
   private BASE_URL: String = 'http://localhost:61297';
   constructor(private http: Http) { }
 
-  addNewItems(items: Items){
-    return this.http.post(`${this.BASE_URL}/api/Products`, Items, { headers: this.headers})
-     .map((data: Response) => console.log(JSON.stringify(data)));
+  addNewItem(items: Items){
+    return this.http.post(`${this.BASE_URL}/api/Products`, items , { headers: this.headers})
+     .map((data: Response) => console.log(JSON.stringify(data)))
+     .toPromise();
   }
 
   viewItems(){

@@ -11,7 +11,8 @@ import { ItemsService } from '../../../services/Restaurant/Items/items.service';
 
 export class AddItemsComponent implements OnInit {
 
-  public items = new Items(null, null, null, null);
+  items = new Items();
+  loading = false;
   public base64textString: string= ""; 
 
   constructor(private changeDetectorRef: ChangeDetectorRef,  public _route: Router, private itemsService: ItemsService) { }
@@ -20,33 +21,26 @@ export class AddItemsComponent implements OnInit {
     
   }
 
-  handleUpload(evt):void{
-      this.items.itemImage = evt.target.files;
-      var files = this.items.itemImage;
-      var file = files[0];
-    
+  handleUpload(evt): void{
+    var files = evt.target.files;
+    var file = files[0];
+
     if (files && file) {
         var reader = new FileReader();
-        reader.onload = this._handleReaderLoaded.bind(this);
+        reader.onload =this._handleReaderLoaded.bind(this);
         reader.readAsBinaryString(file);
     }
   }
   
   _handleReaderLoaded(readerEvt) {
-     var binaryString = readerEvt.target.result;
-     this.base64textString= btoa(binaryString);
-     // console.log(btoa(binaryString));
-  }
+      var binaryString = readerEvt.target.result;
+      this.base64textString= btoa(binaryString);
+      console.log(btoa(binaryString));
+   }
  
   OnSubmit(){
-   this.itemsService.addNewItems(this.items)
-   .subscribe(
-    data => {
-      console.log(JSON.stringify(data))
-    },
-    error => {
-      console.log(JSON.stringify(error))
-    });
+    this.loading = true;
+   this.itemsService.addNewItem(this.items);
   }
 }
 

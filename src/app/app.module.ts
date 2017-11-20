@@ -35,7 +35,6 @@ import { RegisterCustomerService } from './services/Customer/register-customer.s
 import { ItemService } from './services/item.service';
 import { AlertService } from './services/Alert.service';
 import { AuthenticationService } from './services/AuthenticateService';
-import { RegisterDriverComponent } from './Forms/register-driver/register-driver.component';
 import { AuthGuard } from './Auth/auth.guard';
 import { RestaurantService } from './services/Restaurant/restaurant.service';
 
@@ -46,6 +45,8 @@ import { AgmCoreModule } from '@agm/core';
 
 import { ItemsService } from './services/Restaurant/Items/items.service';
 import { CheckoutComponent } from './Dashboard/checkout/checkout.component';
+import { DriverLoginComponent } from './Forms/Driver/driver-login/driver-login.component';
+import { DriverRegisterComponent } from './Forms/Driver/driver-register/driver-register.component';
 
 
 @NgModule({
@@ -65,10 +66,11 @@ import { CheckoutComponent } from './Dashboard/checkout/checkout.component';
     RestaurantComponent,
     AddItemsComponent,
     ViewOrdersComponent,
-    RegisterDriverComponent,
     RegisterRestaurantComponent,
     LoginRestComponent,
     CheckoutComponent,
+    DriverLoginComponent,
+    DriverRegisterComponent,
   ],
   imports: [
     AgmCoreModule.forRoot({
@@ -112,7 +114,7 @@ import { CheckoutComponent } from './Dashboard/checkout/checkout.component';
      },
      {
        path: 'driver.html',
-       component: RegisterDriverComponent
+       component: DriverRegisterComponent
      },
      {
        path: 'Restaurant.html',
@@ -129,6 +131,9 @@ import { CheckoutComponent } from './Dashboard/checkout/checkout.component';
      {
        path: 'login/username/userRole=1/order/checkout',
        component: CheckoutComponent
+     },{
+       path: "driver-login.html",
+       component: DriverLoginComponent
      }
     ]),
   HttpModule ],

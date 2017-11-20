@@ -62,6 +62,7 @@ export class RegisterRestaurantComponent implements OnInit {
           this.latitude = place.geometry.location.lat();
           this.longitude = place.geometry.location.lng();
           this.zoom = 12;
+          this.restaurant.city = place.name;
         });
       });
     });
