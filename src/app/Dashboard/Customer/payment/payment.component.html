@@ -34,8 +34,15 @@
                                 </div>
                                 <div class='form-row'>
                                     <div class='form-group card required'>
-                                        <label class='control-label'>Delivery Address</label>
-                                        <input autocomplete='off' [(ngModel)]="Address" name="Address" class='form-control' size='20' type='text'>
+                                            <label class='control-label'>Delivery Address</label>                                            
+                                        <div class="search">
+                                            <form method="post ">
+                                                    <input placeholder="Delivery Address" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+                                                <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+                                                        <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+                                                </agm-map>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class='form-row'>
