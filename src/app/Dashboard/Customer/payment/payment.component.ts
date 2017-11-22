@@ -12,13 +12,15 @@ export class PaymentComponent implements OnInit {
 
   public creditCard;
   public CVV;
-  public expiryDate;
+  public expiryDate: string;
   public Address;
 
   public latitude: number;
   public longitude: number;
   public searchControl: FormControl;
   public zoom: number;
+
+  public total: string = '';
 
   @ViewChild("search")
   public searchElementRef: ElementRef;
@@ -30,6 +32,9 @@ export class PaymentComponent implements OnInit {
     this.creditCard = sessionStorage.getItem("creditCard")
     this.CVV = sessionStorage.getItem("CVV")
     this.expiryDate = sessionStorage.getItem("expiryDate")
+    this.expiryDate = this.expiryDate.replace("T00:00:00", "");
+    this.total = sessionStorage.getItem("total");
+
   
   //set google maps defaults
   this.zoom = 4;

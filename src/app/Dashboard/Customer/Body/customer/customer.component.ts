@@ -23,6 +23,8 @@ export class CustomerComponent implements OnInit {
   public totalAmt: number = 0;
   public amt: number;
   public subTotal: number = 0;
+  public items: Array<string>;
+  public quantity = 1;
 
   constructor( private router:Router,
               private viewItems: ItemsService,
@@ -39,21 +41,25 @@ export class CustomerComponent implements OnInit {
      this.getStoreItems();
   }
     
-  addItemInCart(Id: number, quantity: number){
+  addItemInCart(Id: number){
     let item = this.cartItems.find(ob => ob.Id === Id);
+    let amount = this.cartItems.find(ob => ob.Id === Id).itemPrice;
+    this.numCartItems = this.numCartItems + 1;
     if (this.selectedItems.indexOf(item) < 0) {	   
      this.selectedItems.push(item);
      this.isEnabled = true;
-     this.totalAmt = this.totalAmt + this.addTotalAmout(Id);
-    
+     this.subTotal = amount;
+     this.totalAmt = this.totalAmt + (this.subTotal * this.quantity);
+     
     }
   }
   
   removeSelectedItems(Id: number) {
     let item = this.selectedItems.find(ob => ob.Id === Id);
+    let amount = this.selectedItems.find(ob => ob.Id === Id).itemPrice; 
     let itemIndex = this.selectedItems.indexOf(item);
     this.selectedItems.splice(itemIndex, 1);
-    this.totalAmt = this.totalAmt - this.SubTotalAmout(Id);
+   
 
     if (this.selectedItems.length > 0){
         this.isEnabled = true;
@@ -85,7 +91,8 @@ export class CustomerComponent implements OnInit {
     return  item;
   }
 
-  orderItems(){
+  Payment(){
     this.router.navigate(['/login/username/userRole=1/order/check-out/payment']);
-  }
+    sessionStorage.setItem("total", this.totalAmt.toString());
+  } 
 }

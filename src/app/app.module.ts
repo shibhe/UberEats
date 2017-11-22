@@ -49,7 +49,6 @@ import { ItemsService } from './services/Restaurant/Items/items.service';
 import { CheckoutComponent } from './Dashboard/checkout/checkout.component';
 import { DriverLoginComponent } from './Forms/Driver/driver-login/driver-login.component';
 import { DriverRegisterComponent } from './Forms/Driver/driver-register/driver-register.component';
-import { ConfirmCartComponent } from './Dashboard/Customer/confirm-cart/confirm-cart.component';
 import { CartService } from './services/cart-service/cart.service';
 import { PaymentComponent } from './Dashboard/Customer/payment/payment.component';
 
@@ -76,7 +75,6 @@ import { PaymentComponent } from './Dashboard/Customer/payment/payment.component
     CheckoutComponent,
     DriverLoginComponent,
     DriverRegisterComponent,
-    ConfirmCartComponent,
     PaymentComponent,
   ],
   imports: [
@@ -134,10 +132,6 @@ import { PaymentComponent } from './Dashboard/Customer/payment/payment.component
      {
        path: 'login.html/username/role=3/addItems',
        component: AddItemsComponent
-     },
-     {
-       path: 'login/username/userRole=1/order/confirm-cart',
-       component: ConfirmCartComponent
      },
      {
        path: "driver-login.html",
