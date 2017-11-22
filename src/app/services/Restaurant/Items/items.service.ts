@@ -3,6 +3,7 @@ import { Items } from '../../../../Model/Items.component';
 import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map'
+import { OnlineCart } from '../../../../Model/OnlineCart.component';
 
 @Injectable()
 export class ItemsService {
@@ -12,13 +13,12 @@ export class ItemsService {
 
   addNewItem(items: Items){
     return this.http.post(`${this.BASE_URL}/api/Products`, items , { headers: this.headers})
-     .map((data: Response) => console.log(JSON.stringify(data)))
-     .toPromise();
+     .map((data: Response) => console.log(JSON.stringify(data)));
   }
 
-  viewItems(){
+  viewItems(): Observable<OnlineCart[]>{
     return this.http.get(`${this.BASE_URL}/api/Products`)
-    .map((results: Response) => results.json());
+      .map((results) => results.json());
   }
 
   deleteItem(id: number){

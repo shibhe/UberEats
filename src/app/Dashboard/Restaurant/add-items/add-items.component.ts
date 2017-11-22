@@ -40,7 +40,14 @@ export class AddItemsComponent implements OnInit {
  
   OnSubmit(){
     this.loading = true;
-   this.itemsService.addNewItem(this.items);
+   this.itemsService.addNewItem(this.items)
+   .subscribe(
+    data => {
+       console.log(data);
+    },
+    error => {
+      console.log(error);
+    });
   }
 }
 

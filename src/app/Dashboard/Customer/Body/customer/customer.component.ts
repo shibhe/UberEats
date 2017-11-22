@@ -1,80 +1,91 @@
 import { Component, OnInit } from '@angular/core';
 import { OnlineCart } from '../../../../../Model/OnlineCart.component';
-import { ItemService } from '../../../../services/item.service';
 import { RegisterCustomerService } from '../../../../services/Customer/register-customer.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartItems } from '../../../../../Model/CartItems';
 import { Observable } from 'rxjs';
+import { ItemsService } from '../../../../services/Restaurant/Items/items.service';
+import { CartService } from '../../../../services/cart-service/cart.service';
+
 
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.component.html',
   styleUrls: ['./customer.component.css']
 })
+
 export class CustomerComponent implements OnInit {
 
-  public cartItems: OnlineCart[] = [];
+  public cartItems: OnlineCart[];
   public numCartItems = 0;
-  public subTotalAmt = 0;
-  public isEnabled = false;
-  public seletedItems: CartItems[] = [];
-  public itemIndex;
-  public firstName;
-  public  lastName;
-  public  id;
-  public  email;
-  public  status;
-  public isLogged: string;
+  public selectedItems: CartItems[] = []; 
+  public isEnabled: boolean;
+  public totalAmt: number = 0;
+  public amt: number;
+  public subTotal: number = 0;
 
-  constructor(private itemService: ItemService,
-     private registerCustomerService:RegisterCustomerService,
-     private route: ActivatedRoute,
-     private router: Router) { }
+  constructor( private router:Router,
+              private viewItems: ItemsService,
+              private cartService: CartService) { }
 
   getStoreItems(): void {
-      this.itemService.getItems().then(data => {
-         this.cartItems = data;
-     })
+      this.viewItems.viewItems()
+      .subscribe((data) =>{
+        this.cartItems = data;
+      })
   }
 
   ngOnInit(): void {
      this.getStoreItems();
-     this.firstName = localStorage.getItem("firstName");
-     this.lastName = localStorage.getItem("lastName");
   }
-     
-  addItemInCart(id: number): void {
-     this.itemService.addItem(id);
-     this.numCartItems = this.numCartItems + 1;
-     this.isEnabled = true;
-     this.subTotalAmt = this.subTotalAmt + this.itemService.getSelectedItemAmount(id);
-     this.seletedItems = this.itemService.getSelectedItems();
-  }
-
-  // tslint:disable-next-line:one-line
-  removeItemInCart(id: number){
-    this.itemService.removeItem(id);
-    this.numCartItems = this.numCartItems - 1;
     
-    // tslint:disable-next-line:one-line
-    if (this.numCartItems === 0){
-      this.isEnabled = false;
+  addItemInCart(Id: number, quantity: number){
+    let item = this.cartItems.find(ob => ob.Id === Id);
+    if (this.selectedItems.indexOf(item) < 0) {	   
+     this.selectedItems.push(item);
+     this.isEnabled = true;
+     this.totalAmt = this.totalAmt + this.addTotalAmout(Id);
+    
     }
   }
-  // tslint:disable-next-line:one-line
+  
+  removeSelectedItems(Id: number) {
+    let item = this.selectedItems.find(ob => ob.Id === Id);
+    let itemIndex = this.selectedItems.indexOf(item);
+    this.selectedItems.splice(itemIndex, 1);
+    this.totalAmt = this.totalAmt - this.SubTotalAmout(Id);
+
+    if (this.selectedItems.length > 0){
+        this.isEnabled = true;
+    } else if (this.selectedItems.length <= 0){
+      this.isEnabled = false;
+      this.totalAmt = 0;
+    }
+  }
+
   EmptyCart(){
-    this.itemService.removeAllItems();
-    this.numCartItems = 0;
-    this.isEnabled = false;
-    this.subTotalAmt = 0;
-    this.removeSelectedItems();
+     this.selectedItems.splice(1, 1000);
+  }
+
+  addTotalAmout(Id: number): number{
+    let item = this.selectedItems.find(ob => ob.Id === Id).itemPrice;
+    let quantity = this.selectedItems.find(ob => ob.Id === Id).quantity;
+
+    if (quantity > 1){
+       this.amt =  item * quantity;
+    } else{
+      this.amt =  item * 1;
+    }
+
+    return this.amt;
+  }
+
+  SubTotalAmout(Id: number): number{
+    let item = this.selectedItems.find(ob => ob.Id === Id).itemPrice;
+    return  item;
   }
 
   orderItems(){
-    this.router.navigate(['/login/username/userRole=1/order/checkout']);
-  }
-
-  removeSelectedItems(): void {
-    this.seletedItems.splice(this.itemIndex, 1000);
+    this.router.navigate(['/login/username/userRole=1/order/check-out/payment']);
   }
 }

@@ -35,6 +35,9 @@ login(email: string, password: string) {
         sessionStorage.setItem("lastName", data.lastName);
         sessionStorage.setItem("email", data.email);
         sessionStorage.setItem("password", data.password);
+        sessionStorage.setItem("creditCard", data.creditCard)
+        sessionStorage.setItem("CVV", data.CVV)
+        sessionStorage.setItem("expiryDate", data.expiryDate)
     });
 }
 

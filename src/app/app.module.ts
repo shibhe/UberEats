@@ -32,7 +32,6 @@ import { LoginComponent } from './Forms/login/login.component';
 
 // Services
 import { RegisterCustomerService } from './services/Customer/register-customer.service';
-import { ItemService } from './services/item.service';
 import { AlertService } from './services/Alert.service';
 import { AuthenticationService } from './services/AuthenticateService';
 import { AuthGuard } from './Auth/auth.guard';
@@ -41,12 +40,18 @@ import { RestaurantService } from './services/Restaurant/restaurant.service';
 //Google Maps
 import { AgmCoreModule } from '@agm/core';
 
+//Currency
+import { CurrencyPipe } from '@angular/common';
+
 
 
 import { ItemsService } from './services/Restaurant/Items/items.service';
 import { CheckoutComponent } from './Dashboard/checkout/checkout.component';
 import { DriverLoginComponent } from './Forms/Driver/driver-login/driver-login.component';
 import { DriverRegisterComponent } from './Forms/Driver/driver-register/driver-register.component';
+import { ConfirmCartComponent } from './Dashboard/Customer/confirm-cart/confirm-cart.component';
+import { CartService } from './services/cart-service/cart.service';
+import { PaymentComponent } from './Dashboard/Customer/payment/payment.component';
 
 
 @NgModule({
@@ -71,6 +76,8 @@ import { DriverRegisterComponent } from './Forms/Driver/driver-register/driver-r
     CheckoutComponent,
     DriverLoginComponent,
     DriverRegisterComponent,
+    ConfirmCartComponent,
+    PaymentComponent,
   ],
   imports: [
     AgmCoreModule.forRoot({
@@ -129,22 +136,31 @@ import { DriverRegisterComponent } from './Forms/Driver/driver-register/driver-r
        component: AddItemsComponent
      },
      {
-       path: 'login/username/userRole=1/order/checkout',
-       component: CheckoutComponent
-     },{
+       path: 'login/username/userRole=1/order/confirm-cart',
+       component: ConfirmCartComponent
+     },
+     {
        path: "driver-login.html",
        component: DriverLoginComponent
+     },
+     {
+      path: 'login/username/userRole=1/order/check-out/payment/confirm-cart',
+      component: CheckoutComponent
+     },
+     {
+      path: 'login/username/userRole=1/order/check-out/payment',
+      component: PaymentComponent
      }
     ]),
   HttpModule ],
   providers: [
     RegisterCustomerService,
-    ItemService,
     AlertService,
     AuthenticationService,
     AuthGuard,
     RestaurantService,
-    ItemsService
+    ItemsService,
+    CartService
 
   ],
   bootstrap: [AppComponent]
