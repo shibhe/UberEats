@@ -46,14 +46,18 @@ export class CustomerComponent implements OnInit {
   addItemInCart(Id: number){
     let item = this.cartItems.find(ob => ob.Id === Id);
     let amount = this.cartItems.find(ob => ob.Id === Id).itemPrice;
+    this.items.push(this.cartItems.find(ob => ob.Id === Id).itemName);
     this.numCartItems = this.numCartItems + 1;
     if (this.selectedItems.indexOf(item) < 0) {	   
      this.selectedItems.push(item);
      this.isEnabled = true;
      this.subTotal = amount;
      this.totalAmt = this.totalAmt + (this.subTotal * this.quantity);
-     this.order.totAmt = this.totalAmt;
-     
+     sessionStorage.setItem("quantity", this.quantity.toString());
+    
+     for (let i = 0; i < this.items.length; i++){
+      sessionStorage.setItem("name", this.items[i]);
+     }
     }
   }
   

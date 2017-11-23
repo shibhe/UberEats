@@ -82,7 +82,7 @@
 							</td>
 							<td data-th="Price"> {{ selectedItem.itemPrice  | currency:'ZAR':true:'1.2-2' }}</td>
 							<td data-th="Quantity">
-                                    <input type="number" class="form-control text-center" name="quantity" [(ngModel)]="order.quantity">
+                                    <input type="number" class="form-control text-center" name="quantity" [(ngModel)]="quantity">
                             </td>
                             <td data-th=""> {{ subTotal *  order.quantity  }}</td>
 							<td class="actions" data-th="">

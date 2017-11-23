@@ -22,6 +22,7 @@ export class PaymentComponent implements OnInit {
   public longitude: number;
   public searchControl: FormControl;
   public zoom: number;
+  public quant;
 
   public total: string = '';
 
@@ -39,6 +40,9 @@ export class PaymentComponent implements OnInit {
     this.expiryDate = sessionStorage.getItem("expiryDate")
     this.expiryDate = this.expiryDate.replace("T00:00:00", "");
     this.total = sessionStorage.getItem("total");
+    this.quant = sessionStorage.getItem("quantity");
+    this.order.quantity = this.quant;
+    this.order.address = this.Address;
    
   
   //set google maps defaults
@@ -73,7 +77,6 @@ export class PaymentComponent implements OnInit {
         this.zoom = 12;
       
         this.order.address = place.name;
-        alert(this.Address);
       });
     });
   });
