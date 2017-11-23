@@ -1,32 +1,89 @@
 <div class="container">
-    <form action="" method="" class="register-form"> 
-       <div class="row">      
-            <div class="col-md-4 col-sm-4 col-lg-4">
-               <label for="firstName">NAME</label>
-                <input name="firstName" class="form-control" type="text">    
-            </div>            
-       </div>
-       <div class="row">
-            <div class="col-md-4 col-sm-4 col-lg-4">
-               <label for="email">EMAIL</label>
-                <input name="email" class="form-control" type="email">             
-            </div>            
-       </div>
-       <div class="row">
-            <div class="col-md-4 col-sm-4 col-lg-4">
-               <label for="password">PASSWORD</label>
-                <input name="password" class="form-control" type="password">             
-            </div>            
-       </div>
-       <hr>
-       <div class="row">
-            <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
-            <button class="btn btn-default regbutton">Register</button>
-            
-           </div>
-           <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
-            <a  routerLink="/driver-login.html" class="btn btn-default logbutton">Sign up</a>           
-           </div>          
-       </div>    
-     </form>
- </div>
+    <nav aria-label="breadcrumb" role="navigation">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Register driver</li>
+        </ol>
+    </nav>
+    <h1 class="well">Delivery Partner
+        <br>
+        <h5>Safe, reliable rides in minutes</h5>
+    </h1>
+
+    <div class="col-lg-12 well">
+        <div class="row">
+            <form>
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            <input [(ngModel)]="driver.firstName" name="firstName" type="text" placeholder="First Name Here..." class="form-control">
+                            <!--<small [hidden]="firstName.valid || (firstName.pristine && !f.submitted) || firstName.errors.minlength" class="text-danger">
+                                First Name is required (minimum 2 characters).
+                             </small>-->
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <input [(ngModel)]="driver.lastName" name="lastName" type="text" placeholder="Last Name Here..." class="form-control">
+                            <!--<small [hidden]="lastName.valid || (lastName.pristine && !f.submitted)" class="text-danger">
+                                Last Name is required (minimum 2 characters).
+                             </small>-->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input [(ngModel)]="driver.phoneNumber" name="phoneNumber" type="tel" pattern="[0-9]{10}" placeholder="Phone number Here..." class="form-control">
+                       <!-- <small [hidden]="phoneNumber.valid || (phoneNumber.pristine && !f.submitted)" class="text-danger">
+                                Phone number is required (+27 72 392 3176 ).
+                        </small>-->
+                    </div>
+                   
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            <input [(ngModel)]="driver.email" name="email" type="email" placeholder="Email Here.." class="form-control">
+                           <!-- <small [hidden]="email.valid || (email.pristine && !f.submitted)" class="text-danger">
+                                Email is required and format should be <i>joseph@gmail.com</i>.
+                            </small>-->
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <input [(ngModel)]="driver.password" name="password" type="password" placeholder="Password Here.." pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" class="form-control">
+                            <!--<small [hidden]="password.valid || (password.pristine && !f.submitted)" class="text-danger">
+                                    Password is required (Between 5-15 characters)
+                             </small>-->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            <input placeholder="City Here.." class="form-control" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+                            <!--<small [hidden]="creditCard.valid || (creditCard.pristine && !f.submitted)" class="text-danger">
+                                Credit card number is required (19 digits).
+                        </small>-->
+                        </div>
+                        <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+                            <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+                       </agm-map>
+                        <div class="col-sm-6 form-group">
+                            <input [(ngModel)]="driver.inviteCode" name="inviteCode" type="type" placeholder="Invite Code Here.." class="form-control" required #CVV="ngModel" maxlength="4">
+                            <!--<small [hidden]="CVV.valid || (CVV.pristine && !f.submitted)" class="text-danger">
+                                Card Verification Value is required (4 digits).
+                        </small>-->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            <input [(ngModel)]="driver.transportType" type="text" name="transportType" placeholder="Transport Type Here.." class="form-control" required>
+                        </div>
+                      
+                    </div>
+
+                    <p>By clicking "Sign Up", you agree to Uber's <span>Terms and Conditions</span> and <span>Privacy Policy</span>.</p>
+                    <div class="form-group">
+                        <p>Already use Uber?<br>
+                            <a routerLink="/driver.html" style="color: #6CF3A5">Sign In</a></p>
+                            <button [disabled]="loading" class="btn btn-md btn-success" (click)="OnSubmit()" style="margin-bottom: 5px">Submit Registration
+                                <i class="fa fa-arrow-right" style="text-align: right"></i>
+                            </button>
+                        <input type="reset" value="Reset fields" class="btn btn-md btn-success" style="background-color: #85C1E9">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

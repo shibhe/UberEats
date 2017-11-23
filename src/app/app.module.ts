@@ -51,6 +51,7 @@ import { DriverLoginComponent } from './Forms/Driver/driver-login/driver-login.c
 import { DriverRegisterComponent } from './Forms/Driver/driver-register/driver-register.component';
 import { CartService } from './services/cart-service/cart.service';
 import { PaymentComponent } from './Dashboard/Customer/payment/payment.component';
+import { DriverService } from './services/Driver/driver.service';
 
 
 @NgModule({
@@ -111,7 +112,8 @@ import { PaymentComponent } from './Dashboard/Customer/payment/payment.component
         canActivate: [AuthGuard] 
      },
      {
-         path: 'login.html/username/userRole=2', component: DriverComponent
+         path: 'login.html/username/userRole=2',
+         component: DriverComponent
       },
       {
         path: 'login.html/username/userRole=3',
@@ -154,7 +156,8 @@ import { PaymentComponent } from './Dashboard/Customer/payment/payment.component
     AuthGuard,
     RestaurantService,
     ItemsService,
-    CartService
+    CartService,
+    DriverService
 
   ],
   bootstrap: [AppComponent]
