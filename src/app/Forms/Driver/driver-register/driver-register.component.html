@@ -63,7 +63,7 @@
                             <input [(ngModel)]="driver.inviteCode" name="inviteCode" type="type" placeholder="Invite Code Here.." class="form-control" required #CVV="ngModel" maxlength="4">
                             <!--<small [hidden]="CVV.valid || (CVV.pristine && !f.submitted)" class="text-danger">
                                 Card Verification Value is required (4 digits).
-                        </small>-->
+                            </small>-->
                         </div>
                     </div>
                     <div class="row">
@@ -76,7 +76,7 @@
                     <p>By clicking "Sign Up", you agree to Uber's <span>Terms and Conditions</span> and <span>Privacy Policy</span>.</p>
                     <div class="form-group">
                         <p>Already use Uber?<br>
-                            <a routerLink="/driver.html" style="color: #6CF3A5">Sign In</a></p>
+                            <a routerLink="/driver-login.html" style="color: #6CF3A5">Sign In</a></p>
                             <button [disabled]="loading" class="btn btn-md btn-success" (click)="OnSubmit()" style="margin-bottom: 5px">Submit Registration
                                 <i class="fa fa-arrow-right" style="text-align: right"></i>
                             </button>

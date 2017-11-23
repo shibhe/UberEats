@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core'
 import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
 import { MapsAPILoader } from '@agm/core';
+import { Order } from '../../../../Model/OrderCart';
+import { CartService } from '../../../services/cart-service/cart.service';
 
 @Component({
   selector: 'app-payment',
@@ -14,6 +16,7 @@ export class PaymentComponent implements OnInit {
   public CVV;
   public expiryDate: string;
   public Address;
+  public order = new Order();
 
   public latitude: number;
   public longitude: number;
@@ -24,9 +27,11 @@ export class PaymentComponent implements OnInit {
 
   @ViewChild("search")
   public searchElementRef: ElementRef;
+
   constructor(private router: Router,
     private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone) { }
+    private ngZone: NgZone,
+    private cartService: CartService) { }
 
   ngOnInit() {
     this.creditCard = sessionStorage.getItem("creditCard")
@@ -34,7 +39,7 @@ export class PaymentComponent implements OnInit {
     this.expiryDate = sessionStorage.getItem("expiryDate")
     this.expiryDate = this.expiryDate.replace("T00:00:00", "");
     this.total = sessionStorage.getItem("total");
-
+   
   
   //set google maps defaults
   this.zoom = 4;
@@ -66,7 +71,8 @@ export class PaymentComponent implements OnInit {
         this.latitude = place.geometry.location.lat();
         this.longitude = place.geometry.location.lng();
         this.zoom = 12;
-        this.Address = place.name;
+      
+        this.order.address = place.name;
         alert(this.Address);
       });
     });
@@ -83,6 +89,14 @@ private setCurrentPosition() {
  }
 }
   confirmCheckout(){
+    this.cartService.PlaceOrder(this.order)
+    .subscribe(
+      data => {
+        console.log(data);
+      },
+      error => {
+          console.log(error);
+      });
     this.router.navigate(['/login/username/userRole=1/order/check-out/payment/confirm-cart']);
   }
 }

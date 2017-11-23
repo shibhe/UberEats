@@ -82,9 +82,9 @@
 							</td>
 							<td data-th="Price"> {{ selectedItem.itemPrice  | currency:'ZAR':true:'1.2-2' }}</td>
 							<td data-th="Quantity">
-                                    <input type="number" class="form-control text-center" name="quantity" [(ngModel)]="quantity">
+                                    <input type="number" class="form-control text-center" name="quantity" [(ngModel)]="order.quantity">
                             </td>
-                            <td data-th=""> {{ subTotal *  quantity  }}</td>
+                            <td data-th=""> {{ subTotal *  order.quantity  }}</td>
 							<td class="actions" data-th="">
 								<button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
 								<button class="btn btn-danger btn-sm"  (click)="removeSelectedItems(selectedItem.Id)"><i class="fa fa-trash-o"></i></button>								

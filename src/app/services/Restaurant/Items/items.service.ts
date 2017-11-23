@@ -21,6 +21,11 @@ export class ItemsService {
       .map((results) => results.json());
   }
 
+  viewItem(Id: number){
+    return this.http.get(`${this.BASE_URL}/api/Products/${Id}`)
+      .map((results) => results.json());
+  }
+
   deleteItem(id: number){
     return this.http.delete(`${this.BASE_URL}/api/Products/${id}`)
     .map((results: Response) => results.json());

@@ -6,6 +6,7 @@ import { CartItems } from '../../../../../Model/CartItems';
 import { Observable } from 'rxjs';
 import { ItemsService } from '../../../../services/Restaurant/Items/items.service';
 import { CartService } from '../../../../services/cart-service/cart.service';
+import { Order } from '../../../../../Model/OrderCart';
 
 
 @Component({
@@ -17,6 +18,7 @@ import { CartService } from '../../../../services/cart-service/cart.service';
 export class CustomerComponent implements OnInit {
 
   public cartItems: OnlineCart[];
+  public order = new Order();
   public numCartItems = 0;
   public selectedItems: CartItems[] = []; 
   public isEnabled: boolean;
@@ -50,6 +52,7 @@ export class CustomerComponent implements OnInit {
      this.isEnabled = true;
      this.subTotal = amount;
      this.totalAmt = this.totalAmt + (this.subTotal * this.quantity);
+     this.order.totAmt = this.totalAmt;
      
     }
   }

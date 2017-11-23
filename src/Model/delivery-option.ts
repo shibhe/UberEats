@@ -1,8 +1,8 @@
 export class DeliveryOption {
     constructor(
-        public id: string,
+        public Id: string,
         public name: string,
-        public description: string,
+        public address: string,
         public price: number,
     ){}
 }

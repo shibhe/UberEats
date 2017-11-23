@@ -2,14 +2,18 @@ import { Injectable } from '@angular/core';
 import { CartItems } from '../../../Model/CartItems';
 import { OnlineCart } from '../../../Model/OnlineCart.component';
 import { Observable } from 'rxjs/Observable';
+import { Http, Headers, Response } from '@angular/http';
+import { Order } from '../../../Model/OrderCart';
 
 @Injectable()
 export class CartService {
 
   public selectedItems: CartItems[] = [];
   public AllItems: OnlineCart[];
+  private headers: Headers = new Headers({ 'Content-Type': 'application/json' });
+  private BASE_URL: String = 'http://localhost:61297';
 
-  constructor() { }
+  constructor(private http: Http) { }
 
   getCartItems(){
     return this.selectedItems;
@@ -27,4 +31,14 @@ export class CartService {
     let itemIndex = this.selectedItems.indexOf(item);
     this.selectedItems.splice(itemIndex, 1);
   }
+
+  PlaceOrder(order: Order){
+     return this.http.post(`${this.BASE_URL}/api/OnlineCarts`, order, { headers: this.headers } )
+    .map((data: Response) => console.log(JSON.stringify(data)));
+  }
+
+  ViewOrderDetails(Id: number){
+    return this.http.get(`${this.BASE_URL}/api/OnlineCarts/${Id}`, { headers: this.headers } )
+      .map((data: Response) => console.log(JSON.stringify(data)));
+ }
 }
