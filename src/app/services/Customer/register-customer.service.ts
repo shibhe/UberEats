@@ -10,19 +10,14 @@ export class RegisterCustomerService {
   private headers: Headers = new Headers({ 'Content-Type': 'application/json' });
   private BASE_URL: String = 'http://localhost:61297';
   private isLoggedIn;
-  public userData = new Customer();
 
   constructor(private http: Http) {
     this.isLoggedIn = true;
   }
 
-  getCustomerData(){
-    return this.userData
-  }
-
   postNewCustomer(customer: Customer) {
     return this.http.post(`${this.BASE_URL}/api/Customers`, customer, { headers: this.headers })
-    .map((data) => console.log(JSON.stringify(data)));
+     .map((data) => console.log(JSON.stringify(data)));
   }
 
 login(email: string, password: string) {
