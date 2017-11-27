@@ -23,6 +23,7 @@ export class CustomerComponent implements OnInit {
   public selectedItems: CartItems[] = []; 
   public isEnabled: boolean;
   public totalAmt: number = 0;
+  public data = new OnlineCart();
   public amt: number;
   public subTotal: number = 0;
   public items: Array<string>;
@@ -35,7 +36,8 @@ export class CustomerComponent implements OnInit {
   getStoreItems(): void {
       this.viewItems.viewItems()
       .subscribe((data) =>{
-        this.cartItems = data;
+             this.cartItems = data;
+             console.log("Data ", this.cartItems)
       })
   }
 
@@ -46,7 +48,7 @@ export class CustomerComponent implements OnInit {
   addItemInCart(Id: number){
     let item = this.cartItems.find(ob => ob.Id === Id);
     let amount = this.cartItems.find(ob => ob.Id === Id).itemPrice;
-    this.items.push(this.cartItems.find(ob => ob.Id === Id).itemName);
+
     this.numCartItems = this.numCartItems + 1;
     if (this.selectedItems.indexOf(item) < 0) {	   
      this.selectedItems.push(item);
@@ -54,6 +56,7 @@ export class CustomerComponent implements OnInit {
      this.subTotal = amount;
      this.totalAmt = this.totalAmt + (this.subTotal * this.quantity);
      sessionStorage.setItem("quantity", this.quantity.toString());
+     sessionStorage.setItem("id", Id.toString());
     
      for (let i = 0; i < this.items.length; i++){
       sessionStorage.setItem("name", this.items[i]);

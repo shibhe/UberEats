@@ -29,6 +29,7 @@ export class DriverService {
         sessionStorage.setItem("email", data.email);
         sessionStorage.setItem("password", data.password);
         sessionStorage.setItem("transportType", data.transportType);
+        console.log("Driver", data)
     });
 }
 

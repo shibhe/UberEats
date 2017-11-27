@@ -15,7 +15,6 @@ import { RegisterRestaurantComponent } from './Forms/Restaurant/register-restaur
 import { LoginRestComponent } from './Forms/Restaurant/login-rest/login-rest.component';
 import { DriverComponent } from './Dashboard/Driver/driver/driver.component';
 import { OrderComponent } from './Dashboard/Driver/Driver/order/order.component';
-import { UpcomingComponent } from './Dashboard/Driver/Driver/upcoming/upcoming.component';
 import { RestaurantComponent } from './Dashboard/Restaurant/restaurant/restaurant.component';
 import { AddItemsComponent } from './Dashboard/Restaurant/add-items/add-items.component';
 import { ViewOrdersComponent } from './Dashboard/Restaurant/view-orders/view-orders.component';
@@ -52,6 +51,7 @@ import { DriverRegisterComponent } from './Forms/Driver/driver-register/driver-r
 import { CartService } from './services/cart-service/cart.service';
 import { PaymentComponent } from './Dashboard/Customer/payment/payment.component';
 import { DriverService } from './services/Driver/driver.service';
+import { UpcomingOrdersComponent } from './Dashboard/Driver/up-coming-orders/upcoming-orders/upcoming-orders.component';
 
 
 @NgModule({
@@ -67,7 +67,6 @@ import { DriverService } from './services/Driver/driver.service';
     CustomerComponent,
     DriverComponent,
     OrderComponent,
-    UpcomingComponent,
     RestaurantComponent,
     AddItemsComponent,
     ViewOrdersComponent,
@@ -77,6 +76,7 @@ import { DriverService } from './services/Driver/driver.service';
     DriverLoginComponent,
     DriverRegisterComponent,
     PaymentComponent,
+    UpcomingOrdersComponent,
   ],
   imports: [
     AgmCoreModule.forRoot({

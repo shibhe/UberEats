@@ -23,8 +23,9 @@ export class PaymentComponent implements OnInit {
   public searchControl: FormControl;
   public zoom: number;
   public quant;
+  public id;
 
-  public total: string = '';
+  public total;
 
   @ViewChild("search")
   public searchElementRef: ElementRef;
@@ -41,9 +42,10 @@ export class PaymentComponent implements OnInit {
     this.expiryDate = this.expiryDate.replace("T00:00:00", "");
     this.total = sessionStorage.getItem("total");
     this.quant = sessionStorage.getItem("quantity");
-    this.order.quantity = this.quant;
-    this.order.address = this.Address;
-   
+    this.id = sessionStorage.getItem("id");
+    this.order.Quality = this.quant;
+    this.order.ProductID = this.id
+    this.order.TotAmt = this.total;
   
   //set google maps defaults
   this.zoom = 4;
@@ -91,15 +93,17 @@ private setCurrentPosition() {
    });
  }
 }
-  confirmCheckout(){
+
+confirmCheckout(){
     this.cartService.PlaceOrder(this.order)
     .subscribe(
       data => {
         console.log(data);
+        this.router.navigate(['/login/username/userRole=1/order/check-out/payment/confirm-cart']);
       },
       error => {
           console.log(error);
       });
-    this.router.navigate(['/login/username/userRole=1/order/check-out/payment/confirm-cart']);
+   
   }
 }

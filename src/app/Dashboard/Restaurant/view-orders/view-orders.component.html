@@ -15,8 +15,7 @@
               <tr *ngFor="let orders of order">
                 <td> {{ orders.itemName }}</td>
                 <td> R {{ orders.itemPrice }}</td>
-                <td> {{ orders.description }}</td>
-                <td> {{ orders.amt }}</td>
+                <td> {{ orders.totAmt }}</td>
                 <td> {{ orders.delivered }}</td>
               </tr>
             </tbody>

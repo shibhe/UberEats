@@ -1,23 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from '../../../../services/cart-service/cart.service';
+import { ItemsService } from '../../../../services/Restaurant/Items/items.service';
 import { Router } from '@angular/router';
-import { CartService } from '../../../services/cart-service/cart.service';
-import { DeliveryOption } from '../../../../Model/delivery-option';
-import { ItemsService } from '../../../services/Restaurant/Items/items.service';
+import { DeliveryOption } from '../../../../../Model/delivery-option';
 
 @Component({
-  selector: 'app-restaurant',
-  templateUrl: './restaurant.component.html',
-  styleUrls: ['./restaurant.component.css']
+  selector: 'app-upcoming-orders',
+  templateUrl: './upcoming-orders.component.html',
+  styleUrls: ['./upcoming-orders.component.css']
 })
-export class RestaurantComponent implements OnInit {
+export class UpcomingOrdersComponent implements OnInit {
 
   public orders: DeliveryOption[];
   public productName;
-  public productPrice;
-  public prodID;
   
-  
-
   constructor(private router: Router, 
     private cartService: CartService,
     private itemsService: ItemsService) { }
@@ -34,13 +30,9 @@ export class RestaurantComponent implements OnInit {
      .subscribe((data) =>
     {
       this.productName = data.itemName;
-      this.productPrice = data.itemPrice;
-
+     
       console.log("product", data);
     });
   }
 
-  addItems(){
-    this.router.navigate(['/login.html/username/role=3/addItems'])
-  }
 }
