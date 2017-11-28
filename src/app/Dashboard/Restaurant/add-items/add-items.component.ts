@@ -21,22 +21,18 @@ export class AddItemsComponent implements OnInit {
     
   }
 
-  handleUpload(evt): void{
-    var files = evt.target.files;
-    var file = files[0];
-
-    if (files && file) {
-        var reader = new FileReader();
-        reader.onload =this._handleReaderLoaded.bind(this);
-        reader.readAsBinaryString(file);
-    }
+  public handleUpload(event)
+  {
+      let imageFile = event.target.files[0]; //grab the image file
+      
+      let fr = new FileReader(); // create a file reader (Note: It is like C#'s FileStream)
+      fr.readAsDataURL(imageFile); //initialize the FileReader with a file to read
+      fr.onload = () => // function to call when the fileReader loads a file
+      {
+          this.items.itemImage = fr.result.split(";base64,")[1] //get the base64 string representation of the file (without file type data)
+          console.log("Data: ", this.items.itemImage);
+      } 
   }
-  
-  _handleReaderLoaded(readerEvt) {
-      var binaryString = readerEvt.target.result;
-      this.base64textString= btoa(binaryString);
-      console.log(btoa(binaryString));
-   }
  
   OnSubmit(){
     this.loading = true;
