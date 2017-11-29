@@ -32,9 +32,29 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     let email = this.customer.email;
     let password = this.customer.password;
-    this.authenticationService.login(email, password);
-    this.alertService.success('Login successful', true);
-    this.router.navigate(['/login/username/userRole=1']);
-    this.authenticationService.setIsLoggedIn();
+    this.authenticationService.login(email, password)
+    .subscribe((data) =>
+    {
+
+      if (data.status == 404){
+        alert("Invalid username or password");
+      }
+      else if (data.status == 500) {
+          alert("Please check your internet connection and try again later");
+      }
+      else{
+        this.authenticationService.setIsLoggedIn();
+        sessionStorage.setItem("id", data.id);
+        sessionStorage.setItem("firstName", data.firstName);
+        sessionStorage.setItem("lastName", data.lastName);
+        sessionStorage.setItem("email", data.email);
+        sessionStorage.setItem("password", data.password);
+        sessionStorage.setItem("creditCard", data.creditCard)
+        sessionStorage.setItem("CVV", data.CVV)
+        sessionStorage.setItem("expiryDate", data.expiryDate)
+        this.alertService.success('Login successful', true);
+        this.router.navigate(['/login/username/userRole=1']);
+      }
+    });
   }
 }

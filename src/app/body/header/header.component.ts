@@ -33,8 +33,7 @@ export class HeaderComponent implements OnInit {
      private mapsAPILoader: MapsAPILoader,
      private ngZone: NgZone,
      private restaurantService:RestaurantService) {
-    this.isLogged = this.registerCustomerService.getIsLoggedIn();
-   // this.isLogged = this.restaurantService.getIsLoggedIn();
+     this.isLogged = this.registerCustomerService.getIsLoggedIn();
     }
  
   ngOnInit() {

@@ -22,18 +22,7 @@ export class RegisterCustomerService {
 
 login(email: string, password: string) {
     return this.http.post(`${this.BASE_URL}/api/Customers?email=${email}&password=${password}`, {email: email, password: password}, { headers: this.headers})
-    .map(res => res.json())
-    .subscribe((data) =>
-    {
-        sessionStorage.setItem("id", data.id);
-        sessionStorage.setItem("firstName", data.firstName);
-        sessionStorage.setItem("lastName", data.lastName);
-        sessionStorage.setItem("email", data.email);
-        sessionStorage.setItem("password", data.password);
-        sessionStorage.setItem("creditCard", data.creditCard)
-        sessionStorage.setItem("CVV", data.CVV)
-        sessionStorage.setItem("expiryDate", data.expiryDate)
-    });
+    .map(res => res.json());
 }
 
   updateRestDetails(id: number, customer: Customer){
