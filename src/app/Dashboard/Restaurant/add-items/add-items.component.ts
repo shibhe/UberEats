@@ -13,7 +13,6 @@ export class AddItemsComponent implements OnInit {
 
   items = new Items();
   loading = false;
-  public base64textString: string= ""; 
 
   constructor(private changeDetectorRef: ChangeDetectorRef,  public _route: Router, private itemsService: ItemsService) { }
 

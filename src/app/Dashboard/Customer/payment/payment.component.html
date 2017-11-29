@@ -14,7 +14,7 @@
                            <script src='https://js.stripe.com/v2/' type='text/javascript'></script>
                              <form accept-charset="UTF-8" action="/" class="require-validation" data-cc-on-file="false" data-stripe-publishable-key="pk_bQQaTxnaZlzv4FnnuZ28LFHccVSaj" id="payment-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓" /><input name="_method" type="hidden" value="PUT" /><input name="authenticity_token" type="hidden" value="qLZ9cScer7ZxqulsUWazw4x3cSEzv899SP/7ThPCOV8=" /></div>
                                  <br>
-                                <div class='form-row'>
+                                <!---<div class='form-row'>
                                     <div class='form-group required'>
                                         <div class='error form-group hide'>
                                             <div class='alert-danger alert'>
@@ -25,7 +25,7 @@
                                         <label class='control-label'>Name on Card</label>
                                         <input class='form-control' size='4' type='text' placeholder="Name on Card">
                                     </div>
-                                </div>
+                                </div>-->
                                 <div class='form-row'>
                                     <div class='form-group card required'>
                                         <label class='control-label'>Credit Card Number</label>
@@ -81,13 +81,12 @@
                           
                           <div class="jumbotron jumbotron-flat">
                               <div class="center"><h2><i>BALANCE DUE:</i></h2></div>
-                              <div class="paymentAmt">R {{ total }}</div>
+                              <div class="paymentAmt">{{ total | currency:'ZAR':true:'1.2-2' }}</div>
                          </div>
                    </div>
                </div>
             </div>
            </fieldset>
-           {{ order | json }}
         </form>
       </div>
     </div>

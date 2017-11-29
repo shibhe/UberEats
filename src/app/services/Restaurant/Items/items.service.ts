@@ -16,7 +16,7 @@ export class ItemsService {
      .map((data: Response) => console.log(JSON.stringify(data)));
   }
 
-  viewItems(): Observable<OnlineCart[]>{
+  viewItems(){
     return this.http.get(`${this.BASE_URL}/api/Products`)
       .map((results) => results.json());
   }

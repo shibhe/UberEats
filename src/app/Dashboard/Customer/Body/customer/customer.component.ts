@@ -26,6 +26,7 @@ export class CustomerComponent implements OnInit {
   public data = new OnlineCart();
   public amt: number;
   public subTotal: number = 0;
+  public RestName;
   public items: Array<string>;
   public quantity = 1;
 
@@ -37,7 +38,6 @@ export class CustomerComponent implements OnInit {
       this.viewItems.viewItems()
       .subscribe((data) =>{
              this.cartItems = data;
-             console.log("Data ", this.cartItems)
       })
   }
 
