@@ -52,6 +52,7 @@ import { CartService } from './services/cart-service/cart.service';
 import { PaymentComponent } from './Dashboard/Customer/payment/payment.component';
 import { DriverService } from './services/Driver/driver.service';
 import { UpcomingOrdersComponent } from './Dashboard/Driver/up-coming-orders/upcoming-orders/upcoming-orders.component';
+import { CartListComponent } from './Dashboard/Customer/cart-list/cart-list.component';
 
 
 @NgModule({
@@ -77,6 +78,7 @@ import { UpcomingOrdersComponent } from './Dashboard/Driver/up-coming-orders/upc
     DriverRegisterComponent,
     PaymentComponent,
     UpcomingOrdersComponent,
+    CartListComponent,
   ],
   imports: [
     AgmCoreModule.forRoot({

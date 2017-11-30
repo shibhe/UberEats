@@ -56,7 +56,7 @@ export class CustomerComponent implements OnInit {
      this.subTotal = amount;
      this.totalAmt = this.totalAmt + (this.subTotal * this.quantity);
      sessionStorage.setItem("quantity", this.quantity.toString());
-     sessionStorage.setItem("id", Id.toString());
+     sessionStorage.setItem("prodId", Id.toString());
     
      for (let i = 0; i < this.items.length; i++){
       sessionStorage.setItem("name", this.items[i]);
@@ -76,6 +76,7 @@ export class CustomerComponent implements OnInit {
     } else if (this.selectedItems.length <= 0){
       this.isEnabled = false;
       this.totalAmt = 0;
+      this.numCartItems = 0;
     }
   }
 

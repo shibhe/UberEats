@@ -2,84 +2,37 @@ td{
     color: #212F3D;
 }
 
-h5 {
-  font-size: 1.28571429em;
-  font-weight: 700;
-  line-height: 1.2857em;
-  margin: 0;
+.table>tbody>tr>td, .table>tfoot>tr>td{
+    vertical-align: middle;
 }
-
-.gold{
-	color: #FFBF00;
-}
-
-/*********************************************
-					PRODUCTS
-*********************************************/
-
-.product{
-	border: 1px solid #dddddd;
-	height: 321px;
-}
-
-.product>img{
-	max-width: 230px;
-}
-
-.product-rating{
-	font-size: 20px;
-	margin-bottom: 25px;
-}
-
-.product-title{
-	font-size: 20px;
-}
-
-.product-desc{
-	font-size: 14px;
-}
-
-.product-price{
-	font-size: 22px;
-}
-
-.product-stock{
-	color: #74DF00;
-	font-size: 20px;
-	margin-top: 10px;
-}
-
-.product-info{
-		margin-top: 50px;
-}
-
-/*********************************************
-					VIEW
-*********************************************/
-
-.content-wrapper {
-	max-width: 1140px;
-	background: #fff;
-	margin: 0 auto;
-	margin-top: 25px;
-	margin-bottom: 10px;
-	border: 0px;
-	border-radius: 0px;
-}
-
-.container-fluid{
-	max-width: 1140px;
-	margin: 0 auto;
-}
-
-.view-wrapper {
-	float: right;
-	max-width: 70%;
-	margin-top: 25px;
-}
-
-.container {
-	padding-left: 0px;
-	padding-right: 0px;
-	max-width: 100%;
+@media screen and (max-width: 600px) {
+    table#cart tbody td .form-control{
+		width: 20%;
+		display: inline !important;
+	}
+	.actions .btn{
+		width:36%;
+		margin:1.5em 0;
+	}
+	
+	.actions .btn-info{
+		float:left;
+	}
+	.actions .btn-danger{
+		float:right;
+	}
+	
+	table#cart thead { display: none; }
+	table#cart tbody td { display: block; padding: .6rem; min-width:320px;}
+	table#cart tbody tr td:first-child { background: #333; color: #fff; }
+	table#cart tbody td:before {
+		content: attr(data-th); font-weight: bold;
+		display: inline-block; width: 8rem;
+	}
+	
+	
+	
+	table#cart tfoot td{display:block; }
+	table#cart tfoot td .btn{display:block;}
+	
 }

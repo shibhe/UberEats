@@ -42,7 +42,7 @@ export class PaymentComponent implements OnInit {
     this.expiryDate = this.expiryDate.replace("T00:00:00", "");
     this.total = sessionStorage.getItem("total");
     this.quant = sessionStorage.getItem("quantity");
-    this.id = sessionStorage.getItem("id");
+    this.id = sessionStorage.getItem("prodId");
     this.order.Quality = this.quant;
     this.order.ProductID = this.id
     this.order.TotAmt = this.total;
@@ -98,11 +98,11 @@ confirmCheckout(){
     this.cartService.PlaceOrder(this.order)
     .subscribe(
       data => {
-        console.log(data);
+        console.log("Succes", data);
         this.router.navigate(['/login/username/userRole=1/order/check-out/payment/confirm-cart']);
       },
       error => {
-          console.log(error);
+          console.log("Error", error);
       });
    
   }
