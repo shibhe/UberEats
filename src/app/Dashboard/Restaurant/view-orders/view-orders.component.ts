@@ -9,19 +9,28 @@ import { ItemsService } from '../../../services/Restaurant/Items/items.service';
 })
 export class ViewOrdersComponent implements OnInit {
 
- public orders: Items[];
+ public product: Items[];
  public id;
+ public restID = sessionStorage.getItem("id");
 
   constructor(private cartService: ItemsService) { }
 
   getStoreItems(): void {
-    this.cartService.viewItem(this.id)
+    /**this.cartService.viewItem(this.id)
     .subscribe((data) =>{
-           this.orders = data;
-    })
+           this.product = data;
+           console.log("Products: ", data)
+    })**/
   }
   ngOnInit() {
-    this.getStoreItems();
+    //this.getStoreItems();
+
+    this.cartService.viewItems(this.restID)
+    .subscribe((data) => {
+      this.product = data;
+      console.log("Products: ", this.product);
+    })
+
   }
 
 }

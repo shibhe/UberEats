@@ -5,7 +5,7 @@
                 <button class="btn-controls" id="add-user" (click)="addItems()" type="submit" data-toggle="modal" data-target="#add_user_modal">
                     <i class="fa fa-plus"></i> New Product
                 </button>
-                   <button class="btn-controls" id="print" type="submit"><i class="fa fa-eye"></i> View Products</button>
+                   <button class="btn-controls" id="print" (click)="viewProducts()" type="submit"><i class="fa fa-eye"></i> View Products</button>
                 <div id="export-control" class="dropdown">
                     <button class="btn btn-default dropdown-toggle" type="button" id="export-option" 
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">

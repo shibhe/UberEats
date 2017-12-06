@@ -16,8 +16,8 @@ export class ItemsService {
      .map((data: Response) => console.log(JSON.stringify(data)));
   }
 
-  viewItems(){
-    return this.http.get(`${this.BASE_URL}/api/Products`)
+  viewItems(id){
+    return this.http.get(`${this.BASE_URL}/api/Products?userID=${id}`)
       .map((results) => results.json());
   }
 

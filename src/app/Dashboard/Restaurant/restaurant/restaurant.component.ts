@@ -46,4 +46,8 @@ export class RestaurantComponent implements OnInit {
   addItems(){
     this.router.navigate(['/login.html/username/role=3/addItems'])
   }
+
+  viewProducts(){
+    this.router.navigate(['/login.html/username/role=3/viewProducts'])
+  }
 }

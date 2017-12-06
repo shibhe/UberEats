@@ -152,6 +152,10 @@ import { SearchPipe } from './Pipes/search.pipe';
      {
       path: 'login/username/userRole=1/order/check-out/payment',
       component: PaymentComponent
+     },
+     {
+       path:  'login.html/username/role=3/viewProducts',
+       component: ViewOrdersComponent
      }
     ]),
   HttpModule ],
