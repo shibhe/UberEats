@@ -9,19 +9,21 @@ import { ItemsService } from '../../../services/Restaurant/Items/items.service';
 })
 export class ViewOrdersComponent implements OnInit {
 
- public product: Items[];
+ public product = new Items();
  public id;
  public restID = sessionStorage.getItem("id");
+ // public updateProd = new Items();
+ 
 
   constructor(private cartService: ItemsService) { }
 
-  getStoreItems(): void {
+  /** getStoreItems(): void {
     /**this.cartService.viewItem(this.id)
     .subscribe((data) =>{
            this.product = data;
            console.log("Products: ", data)
-    })**/
-  }
+    })
+  }**/
   ngOnInit() {
     //this.getStoreItems();
 
@@ -31,6 +33,11 @@ export class ViewOrdersComponent implements OnInit {
       console.log("Products: ", this.product);
     })
 
+  }
+
+  deleteProduct(id: number){
+    this.product.archived = false;
+    this.cartService.deleteItem(id, this.product);
   }
 
 }

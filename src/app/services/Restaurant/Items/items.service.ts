@@ -16,18 +16,22 @@ export class ItemsService {
      .map((data: Response) => console.log(JSON.stringify(data)));
   }
 
-  viewItems(id){
-    return this.http.get(`${this.BASE_URL}/api/Products?userID=${id}`)
+  viewProducts(){
+    return this.http.get(`${this.BASE_URL}/api/Products`)
       .map((results) => results.json());
   }
 
+  viewItems(id){
+    return this.http.get(`${this.BASE_URL}/api/Products?userID=${id}`)
+      .map((results) => results.json());
+  } 
   viewItem(Id: number){
     return this.http.get(`${this.BASE_URL}/api/Products/${Id}`)
       .map((results) => results.json());
   }
 
-  deleteItem(id: number){
-    return this.http.delete(`${this.BASE_URL}/api/Products/${id}`)
+  deleteItem(id: number, item: Items){
+    return this.http.put(`${this.BASE_URL}/api/Products/${id}`, item, { headers: this.headers })
     .map((results: Response) => results.json());
   }
 

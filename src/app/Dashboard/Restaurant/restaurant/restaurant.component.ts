@@ -4,6 +4,7 @@ import { CartService } from '../../../services/cart-service/cart.service';
 import { DeliveryOption } from '../../../../Model/delivery-option';
 import { ItemsService } from '../../../services/Restaurant/Items/items.service';
 import { Order } from '../../../../Model/OrderCart';
+import { Items } from '../../../../Model/Items.component';
 
 @Component({
   selector: 'app-restaurant',

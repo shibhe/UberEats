@@ -36,7 +36,7 @@ export class CustomerComponent implements OnInit {
               private cartService: CartService) { }
 
   getStoreItems(): void {
-      this.viewItems.viewItems()
+      this.viewItems.viewProducts()
       .subscribe((data) =>{
              this.cartItems = data;
       })
