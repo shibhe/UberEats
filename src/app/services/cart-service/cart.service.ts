@@ -44,7 +44,7 @@ export class CartService {
       .map((data: Response) => console.log(JSON.stringify(data)));
   }
 
-  ViewOrder(): Observable<DeliveryOption[]>{
+  ViewOrder(){
     return this.http.get(`${this.BASE_URL}/api/OnlineCarts`, { headers: this.headers } )
       .map((data: Response) => data.json());
   }

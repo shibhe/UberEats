@@ -141,11 +141,11 @@
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let order of orders">
-                                        <td data-th="Product">
-                                         {{ productName }}
+                                        <td data-th="Product" *ngFor="let productNam of productName">
+                                         {{ productNam }}
                                         
                                         </td>
-                                        <td data-th="Price">  {{ productPrice }} </td>
+                                        <td data-th="Price" *ngFor="let productPric of productPrice">  {{ productPric }} </td>
                                         <td data-th=""> {{ order.Quality }} </td>
                                         <td data-th=""> {{ order.address }} </td>
                                         <td colspan="2" class="hidden-xs"><strong> {{ order.TotAmt  | currency:'ZAR':true:'1.2-2' }}</strong></td>

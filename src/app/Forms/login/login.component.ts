@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem("creditCard", data.creditCard)
         sessionStorage.setItem("CVV", data.CVV)
         sessionStorage.setItem("expiryDate", data.expiryDate)
-        this.alertService.success('Login successful', true);
+        alert('Login successful');
         this.router.navigate(['/login/username/userRole=1']);
       }
     });

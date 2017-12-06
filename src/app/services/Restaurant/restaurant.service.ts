@@ -21,16 +21,7 @@ export class RestaurantService {
 
   login(email: string, password: string) {
     return this.http.post(`${this.BASE_URL}/api/Restaurants?email=${email}&password=${password}`, {  email: email, password: password }, { headers: this.headers })
-    .map(res => res.json())
-    .subscribe((data) =>
-    {
-        sessionStorage.setItem("id", data.Id);
-        sessionStorage.setItem("firstName", data.firstName);
-        sessionStorage.setItem("lastName", data.lastName);
-        sessionStorage.setItem("email", data.email);
-        sessionStorage.setItem("password", data.password);
-        console.log("Data:", data);
-    });
+    .map(res => res.json());
   }
 
   updateRestDetails(id: number, restaurant: Restaurant){

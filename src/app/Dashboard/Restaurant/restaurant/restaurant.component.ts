@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { CartService } from '../../../services/cart-service/cart.service';
 import { DeliveryOption } from '../../../../Model/delivery-option';
 import { ItemsService } from '../../../services/Restaurant/Items/items.service';
+import { Order } from '../../../../Model/OrderCart';
 
 @Component({
   selector: 'app-restaurant',
@@ -12,8 +13,8 @@ import { ItemsService } from '../../../services/Restaurant/Items/items.service';
 export class RestaurantComponent implements OnInit {
 
   public orders: DeliveryOption[];
-  public productName;
-  public productPrice;
+  public productName: string[];
+  public productPrice: number[];
   public prodID;
   
   
@@ -30,14 +31,16 @@ export class RestaurantComponent implements OnInit {
       console.log("Data: 1 ", this.orders);
     });
 
-     this.itemsService.viewItem(1)
-     .subscribe((data) =>
-    {
-      this.productName = data.itemName;
-      this.productPrice = data.itemPrice;
+   for (let i = 0; i < this.orders.length; i++){
+    this.itemsService.viewItem(i)
+    .subscribe((data) =>
+   {
+     this.productName[i] = data.itemName;
+     this.productPrice[i] = data.itemPrice;
 
-      console.log("product", data);
-    });
+     console.log("product", data);
+   });
+   }
   }
 
   addItems(){

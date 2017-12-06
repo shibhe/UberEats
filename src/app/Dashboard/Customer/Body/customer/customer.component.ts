@@ -29,6 +29,7 @@ export class CustomerComponent implements OnInit {
   public RestName;
   public items: Array<string>;
   public quantity = 1;
+  public searchItem: string;
 
   constructor( private router:Router,
               private viewItems: ItemsService,

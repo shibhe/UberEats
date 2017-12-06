@@ -33,9 +33,26 @@ export class LoginRestComponent implements OnInit {
     this.loading = true;
     let email = this.restaurant.email;
     let password = this.restaurant.password;
-    this.restaurantService.login(email, password);
-    this.alertService.success('Login successful', true);
-    this.router.navigate(['/login.html/username/userRole=3']);
-    this.restaurantService.setIsLoggedIn();
+    this.restaurantService.login(email, password)
+    .subscribe((data) =>
+    {
+        if (data.status == 404){
+          alert("Invalid username or password");
+        }
+        else if (data.status == 500) {
+            alert("Please check your internet connection and try again later");
+        }
+        else{
+          this.restaurantService.setIsLoggedIn();
+          sessionStorage.setItem("id", data.Id);
+          sessionStorage.setItem("firstName", data.firstName);
+          sessionStorage.setItem("lastName", data.lastName);
+          sessionStorage.setItem("email", data.email);
+          sessionStorage.setItem("password", data.password);
+          alert('Login successful');
+          this.router.navigate(['/login.html/username/userRole=3']);
+        }
+    });
+   
   }
 }

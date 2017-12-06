@@ -53,6 +53,8 @@ import { PaymentComponent } from './Dashboard/Customer/payment/payment.component
 import { DriverService } from './services/Driver/driver.service';
 import { UpcomingOrdersComponent } from './Dashboard/Driver/up-coming-orders/upcoming-orders/upcoming-orders.component';
 import { CartListComponent } from './Dashboard/Customer/cart-list/cart-list.component';
+import { UpdateDetailsComponent } from './Dashboard/Customer/update-details/update-details.component';
+import { SearchPipe } from './Pipes/search.pipe';
 
 
 @NgModule({
@@ -79,6 +81,8 @@ import { CartListComponent } from './Dashboard/Customer/cart-list/cart-list.comp
     PaymentComponent,
     UpcomingOrdersComponent,
     CartListComponent,
+    UpdateDetailsComponent,
+    SearchPipe,
   ],
   imports: [
     AgmCoreModule.forRoot({
@@ -159,9 +163,11 @@ import { CartListComponent } from './Dashboard/Customer/cart-list/cart-list.comp
     RestaurantService,
     ItemsService,
     CartService,
-    DriverService
+    DriverService,
+    SearchPipe
 
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [SearchPipe]
 })
 export class AppModule { }

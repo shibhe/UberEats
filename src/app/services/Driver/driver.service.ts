@@ -20,17 +20,7 @@ export class DriverService {
 
  login(email: string, password: string) {
     return this.http.post(`${this.BASE_URL}/api/Drivers?email=${email}&password=${password}`, {email: email, password: password}, { headers: this.headers})
-    .map(res => res.json())
-    .subscribe((data) =>
-    {
-        sessionStorage.setItem("id", data.id);
-        sessionStorage.setItem("firstName", data.firstName);
-        sessionStorage.setItem("lastName", data.lastName);
-        sessionStorage.setItem("email", data.email);
-        sessionStorage.setItem("password", data.password);
-        sessionStorage.setItem("transportType", data.transportType);
-        console.log("Driver", data)
-    });
+    .map(res => res.json());
 }
 
   updateDriverDetails(id: number, driver: Driver){
