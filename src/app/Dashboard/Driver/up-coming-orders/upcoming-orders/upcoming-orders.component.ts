@@ -13,6 +13,7 @@ export class UpcomingOrdersComponent implements OnInit {
 
   public orders: DeliveryOption[];
   public productName;
+  public id;
   
   constructor(private router: Router, 
     private cartService: CartService,
@@ -26,7 +27,8 @@ export class UpcomingOrdersComponent implements OnInit {
       console.log("Data: 1 ", this.orders);
     });
 
-     this.itemsService.viewItem(1)
+    
+     this.itemsService.viewItem(12)
      .subscribe((data) =>
     {
       this.productName = data.itemName;

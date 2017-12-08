@@ -102,6 +102,10 @@ import { SearchPipe } from './Pipes/search.pipe';
     MatDialogModule,
     RouterModule.forRoot([
       {
+        path: '#', 
+        component: MainComponent
+      },
+      {
         path: 'register.html',
         component: RegisterCustomerComponent
       },

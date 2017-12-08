@@ -68,6 +68,9 @@
                                 <tr *ngFor="let selectedItem of selectedItems">
                                     <td data-th="Product">
                                         <div class="row">
+                                            <div class="col-sm-2">
+                                                    <img [hidden]="!selectedItem.itemImage" src="data:image/bmp;base64,{{selectedItem.itemImage}}" />
+                                            </div>
                                             <div class="col-sm-10">
                                                 <h4 class="nomargin">{{ selectedItem.itemName }}</h4>
                                                 <p>{{ selectedItem.description }}</p>
