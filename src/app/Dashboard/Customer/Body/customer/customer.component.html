@@ -20,7 +20,7 @@
                         <li>
                             <div class="panel panel-default ">
                                 <div class="panel-body ">
-                                     <img [hidden]="!onlineCart.itemImage" src="data:image/bmp;base64,{{onlineCart.itemImage}}" />
+                                     <img [hidden]="!onlineCart.itemImage" width="290" height="220" src="data:image/bmp;base64,{{onlineCart.itemImage}}" />
                                 </div>
                                 <div class="panel-footer ">
                                     <div class="row ">
@@ -72,12 +72,12 @@
                                                     <img [hidden]="!selectedItem.itemImage" src="data:image/bmp;base64,{{selectedItem.itemImage}}" />
                                             </div>
                                             <div class="col-sm-10">
-                                                <h4 class="nomargin">{{ selectedItem.itemName }}</h4>
-                                                <p>{{ selectedItem.description }}</p>
+                                                <h4 class="nomargin" style="color: white">{{ selectedItem.itemName }}</h4>
+                                                <p style="color: white">{{ selectedItem.description }}</p>
                                             </div>
                                         </div>
                                     </td>
-                                    <td data-th="Price">{{ selectedItem.itemPrice  | currency:'ZAR':true:'1.2-2' }}</td>
+                                    <td data-th="Price" >{{ selectedItem.itemPrice  | currency:'ZAR':true:'1.2-2' }}</td>
                                     <td data-th="Quantity">
                                         <input type="number" class="form-control text-center" [(ngModel)]="selectedItem.quantity" value="0" step="1">
                                     </td>

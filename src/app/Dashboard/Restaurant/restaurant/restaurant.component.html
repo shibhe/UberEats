@@ -141,17 +141,17 @@
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let order of orders">
-                                        <td data-th="Product" *ngFor="let productNam of productName">
-                                         {{ productNam }}
+                                        <td data-th="Product">
+                                            KFC Summer Lunch Box
                                         
                                         </td>
-                                        <td data-th="Price" *ngFor="let productPric of productPrice">  {{ productPric }} </td>
+                                        <td data-th="Price"> {{ order.TotAmt  | currency:'ZAR':true:'1.2-2' }}</td>
                                         <td data-th=""> {{ order.Quality }} </td>
                                         <td data-th=""> {{ order.address }} </td>
                                         <td colspan="2" class="hidden-xs"><strong> {{ order.TotAmt  | currency:'ZAR':true:'1.2-2' }}</strong></td>
                                         <td colspan="1" class="hidden-xs"><strong> {{ order.status }}</strong></td>
                                         <td class="actions" data-th="">
-                                            <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
+                                            <button class="btn btn-info btn-sm" (click)="refresh()"><i class="fa fa-refresh"></i></button>
                                             <button class="btn btn-danger btn-sm"><i class="fa fa-send"></i></button>								
                                         </td>
                                       

@@ -13,10 +13,10 @@ import { Items } from '../../../../Model/Items.component';
 })
 export class RestaurantComponent implements OnInit {
 
-  public orders: DeliveryOption[];
+  public orders = new DeliveryOption();
   public productName: string[];
   public productPrice: number[];
-  public prodID;
+  public prodID: Array<number>;
   
   
 
@@ -28,22 +28,10 @@ export class RestaurantComponent implements OnInit {
     this.cartService.ViewOrder()
     .subscribe((data) => {
       this.orders = data;
-      console.log("Data: ", data);
-      console.log("Data: 1 ", this.orders);
+      console.log("Data ", this.orders);
     });
-
-   for (let i = 0; i < this.orders.length; i++){
-    this.itemsService.viewItem(i)
-    .subscribe((data) =>
-   {
-     this.productName[i] = data.itemName;
-     this.productPrice[i] = data.itemPrice;
-
-     console.log("product", data);
-   });
-   }
   }
-
+  
   addItems(){
     this.router.navigate(['/login.html/username/role=3/addItems'])
   }
