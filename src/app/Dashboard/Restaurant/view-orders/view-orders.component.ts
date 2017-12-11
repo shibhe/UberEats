@@ -12,21 +12,13 @@ export class ViewOrdersComponent implements OnInit {
  public product = new Items();
  public id;
  public restID = sessionStorage.getItem("id");
- // public updateProd = new Items();
  
 
   constructor(private cartService: ItemsService) { }
 
-  /** getStoreItems(): void {
-    /**this.cartService.viewItem(this.id)
-    .subscribe((data) =>{
-           this.product = data;
-           console.log("Products: ", data)
-    })
-  }**/
+  
   ngOnInit() {
-    //this.getStoreItems();
-
+    
     this.cartService.viewItems(this.restID)
     .subscribe((data) => {
       this.product = data;
